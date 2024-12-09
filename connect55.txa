@@ -1,0 +1,3452 @@
+[APPLICATION]
+VERSION 26
+TODO ABC ToDo
+PROCEDURE ClarioNET:ConnectWindow
+[COMMON]
+FROM ABC
+MODIFIED '2024/11/23' '14:57:18'
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('ErrorManager', |
+  'FileManager:Change', |
+  'FileManager:ChangeLine', |
+  'FileManager:Customers', |
+  'FileManager:Departments', |
+  'FileManager:EngRepair', |
+  'FileManager:EngineeredWood', |
+  'FileManager:Family', |
+  'FileManager:Floor', |
+  'FileManager:Gable', |
+  'FileManager:Girder', |
+  'FileManager:Hanger', |
+  'FileManager:Invoices', |
+  'FileManager:LogFile', |
+  'FileManager:Roof', |
+  'FileManager:SSEC::Access', |
+  'FileManager:SSEC::Call', |
+  'FileManager:SSEC::Door', |
+  'FileManager:SSEC::DoorGroup', |
+  'FileManager:SSEC::Edit', |
+  'FileManager:SSEC::Field', |
+  'FileManager:SSEC::File', |
+  'FileManager:SSEC::Procedure', |
+  'FileManager:SSEC::Program', |
+  'FileManager:SSEC::User', |
+  'FileManager:SSEC::UserGroup', |
+  'FileManager:SSEC::UserInGroup', |
+  'FileManager:SalesPeople', |
+  'FileManager:Shipments', |
+  'FileManager:SpecialDescriptions', |
+  'FileManager:States', |
+  'FileManager:Status', |
+  'FileManager:Terms', |
+  'FileManager:UserLimits', |
+  'FileManager:WorkOrderDetail', |
+  'FileManager:WorkOrders', |
+  'FileManager:XXTEMP', |
+  'FuzzyMatcher', |
+  'INIManager', |
+  'RelationManager:Change', |
+  'RelationManager:ChangeLine', |
+  'RelationManager:Customers', |
+  'RelationManager:Departments', |
+  'RelationManager:EngRepair', |
+  'RelationManager:EngineeredWood', |
+  'RelationManager:Family', |
+  'RelationManager:Floor', |
+  'RelationManager:Gable', |
+  'RelationManager:Girder', |
+  'RelationManager:Hanger', |
+  'RelationManager:Invoices', |
+  'RelationManager:LogFile', |
+  'RelationManager:Roof', |
+  'RelationManager:SSEC::Access', |
+  'RelationManager:SSEC::Call', |
+  'RelationManager:SSEC::Door', |
+  'RelationManager:SSEC::DoorGroup', |
+  'RelationManager:SSEC::Edit', |
+  'RelationManager:SSEC::Field', |
+  'RelationManager:SSEC::File', |
+  'RelationManager:SSEC::Procedure', |
+  'RelationManager:SSEC::Program', |
+  'RelationManager:SSEC::User', |
+  'RelationManager:SSEC::UserGroup', |
+  'RelationManager:SSEC::UserInGroup', |
+  'RelationManager:SalesPeople', |
+  'RelationManager:Shipments', |
+  'RelationManager:SpecialDescriptions', |
+  'RelationManager:States', |
+  'RelationManager:Status', |
+  'RelationManager:Terms', |
+  'RelationManager:UserLimits', |
+  'RelationManager:WorkOrderDetail', |
+  'RelationManager:WorkOrders', |
+  'RelationManager:XXTEMP', |
+  'Translator')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 4
+WHEN  ('ErrorManager') ('ErrorClass')
+WHEN  ('FuzzyMatcher') ('FuzzyClass')
+WHEN  ('INIManager') ('INIClass')
+WHEN  ('Translator') ('TranslatorClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 4
+WHEN  ('ErrorManager') ('')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('Translator') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%ProgramAuthor DEFAULT  ('KErskine@Software-By-Ragazzi.com')
+%MessageDescription LONG  (0)
+%GlobalExternal LONG  (0)
+%ExternalSource DEFAULT  ('Dynamic Link Library (DLL)')
+%GenerateEmbedComments LONG  (0)
+%INIActive LONG  (0)
+%INIFile DEFAULT  ('Program Name.INI')
+%ININame DEFAULT  ('')
+%PreserveVars MULTI LONG  ()
+%PreserveVar DEPEND %PreserveVars DEFAULT TIMES 0
+
+%EnableRunTimeTranslator LONG  (0)
+%FuzzyMatchingEnabled LONG  (0)
+%IgnoreCase LONG  (1)
+%WordOnly LONG  (0)
+%DefaultGenerate LONG  (0)
+%DefaultRILogout LONG  (0)
+%LockRecoverTime DEFAULT  ('10')
+%DefaultThreaded DEFAULT  ('Use File Setting')
+%DefaultCreate DEFAULT  ('Use File Setting')
+%DefaultExternal DEFAULT  ('All External')
+%DefaultExternalSource DEFAULT  ('')
+%DefaultExternalAPP LONG  (0)
+%DefaultExport LONG  (0)
+%DefaultOpenMode DEFAULT  ('Share')
+%DefaultUserAccess DEFAULT  ('Read/Write')
+%DefaultOtherAccess DEFAULT  ('Deny None')
+%DefaultLazyOpen LONG  (0)
+%OverrideGenerate DEPEND %File LONG TIMES 0
+
+%OverrideRILogout DEPEND %File DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 76
+WHEN  ('ErrorManager') ('YES')
+WHEN  ('FileManager:Change') ('YES')
+WHEN  ('FileManager:ChangeLine') ('YES')
+WHEN  ('FileManager:Customers') ('YES')
+WHEN  ('FileManager:Departments') ('YES')
+WHEN  ('FileManager:EngRepair') ('YES')
+WHEN  ('FileManager:EngineeredWood') ('YES')
+WHEN  ('FileManager:Family') ('YES')
+WHEN  ('FileManager:Floor') ('YES')
+WHEN  ('FileManager:Gable') ('YES')
+WHEN  ('FileManager:Girder') ('YES')
+WHEN  ('FileManager:Hanger') ('YES')
+WHEN  ('FileManager:Invoices') ('YES')
+WHEN  ('FileManager:LogFile') ('YES')
+WHEN  ('FileManager:Roof') ('YES')
+WHEN  ('FileManager:SSEC::Access') ('YES')
+WHEN  ('FileManager:SSEC::Call') ('YES')
+WHEN  ('FileManager:SSEC::Door') ('YES')
+WHEN  ('FileManager:SSEC::DoorGroup') ('YES')
+WHEN  ('FileManager:SSEC::Edit') ('YES')
+WHEN  ('FileManager:SSEC::Field') ('YES')
+WHEN  ('FileManager:SSEC::File') ('YES')
+WHEN  ('FileManager:SSEC::Procedure') ('YES')
+WHEN  ('FileManager:SSEC::Program') ('YES')
+WHEN  ('FileManager:SSEC::User') ('YES')
+WHEN  ('FileManager:SSEC::UserGroup') ('YES')
+WHEN  ('FileManager:SSEC::UserInGroup') ('YES')
+WHEN  ('FileManager:SalesPeople') ('YES')
+WHEN  ('FileManager:Shipments') ('YES')
+WHEN  ('FileManager:SpecialDescriptions') ('YES')
+WHEN  ('FileManager:States') ('YES')
+WHEN  ('FileManager:Status') ('YES')
+WHEN  ('FileManager:Terms') ('YES')
+WHEN  ('FileManager:UserLimits') ('YES')
+WHEN  ('FileManager:WorkOrderDetail') ('YES')
+WHEN  ('FileManager:WorkOrders') ('YES')
+WHEN  ('FileManager:XXTEMP') ('YES')
+WHEN  ('FuzzyMatcher') ('YES')
+WHEN  ('INIManager') ('YES')
+WHEN  ('RelationManager:Change') ('YES')
+WHEN  ('RelationManager:ChangeLine') ('YES')
+WHEN  ('RelationManager:Customers') ('YES')
+WHEN  ('RelationManager:Departments') ('YES')
+WHEN  ('RelationManager:EngRepair') ('YES')
+WHEN  ('RelationManager:EngineeredWood') ('YES')
+WHEN  ('RelationManager:Family') ('YES')
+WHEN  ('RelationManager:Floor') ('YES')
+WHEN  ('RelationManager:Gable') ('YES')
+WHEN  ('RelationManager:Girder') ('YES')
+WHEN  ('RelationManager:Hanger') ('YES')
+WHEN  ('RelationManager:Invoices') ('YES')
+WHEN  ('RelationManager:LogFile') ('YES')
+WHEN  ('RelationManager:Roof') ('YES')
+WHEN  ('RelationManager:SSEC::Access') ('YES')
+WHEN  ('RelationManager:SSEC::Call') ('YES')
+WHEN  ('RelationManager:SSEC::Door') ('YES')
+WHEN  ('RelationManager:SSEC::DoorGroup') ('YES')
+WHEN  ('RelationManager:SSEC::Edit') ('YES')
+WHEN  ('RelationManager:SSEC::Field') ('YES')
+WHEN  ('RelationManager:SSEC::File') ('YES')
+WHEN  ('RelationManager:SSEC::Procedure') ('YES')
+WHEN  ('RelationManager:SSEC::Program') ('YES')
+WHEN  ('RelationManager:SSEC::User') ('YES')
+WHEN  ('RelationManager:SSEC::UserGroup') ('YES')
+WHEN  ('RelationManager:SSEC::UserInGroup') ('YES')
+WHEN  ('RelationManager:SalesPeople') ('YES')
+WHEN  ('RelationManager:Shipments') ('YES')
+WHEN  ('RelationManager:SpecialDescriptions') ('YES')
+WHEN  ('RelationManager:States') ('YES')
+WHEN  ('RelationManager:Status') ('YES')
+WHEN  ('RelationManager:Terms') ('YES')
+WHEN  ('RelationManager:UserLimits') ('YES')
+WHEN  ('RelationManager:WorkOrderDetail') ('YES')
+WHEN  ('RelationManager:WorkOrders') ('YES')
+WHEN  ('RelationManager:XXTEMP') ('YES')
+WHEN  ('Translator') ('YES')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 4
+WHEN  ('ErrorManager') ('GlobalErrors')
+WHEN  ('FuzzyMatcher') ('FuzzyMatcher')
+WHEN  ('INIManager') ('INIMgr')
+WHEN  ('Translator') ('Translator')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 76
+WHEN  ('ErrorManager') (1)
+WHEN  ('FileManager:Change') (1)
+WHEN  ('FileManager:ChangeLine') (1)
+WHEN  ('FileManager:Customers') (1)
+WHEN  ('FileManager:Departments') (1)
+WHEN  ('FileManager:EngRepair') (1)
+WHEN  ('FileManager:EngineeredWood') (1)
+WHEN  ('FileManager:Family') (1)
+WHEN  ('FileManager:Floor') (1)
+WHEN  ('FileManager:Gable') (1)
+WHEN  ('FileManager:Girder') (1)
+WHEN  ('FileManager:Hanger') (1)
+WHEN  ('FileManager:Invoices') (1)
+WHEN  ('FileManager:LogFile') (1)
+WHEN  ('FileManager:Roof') (1)
+WHEN  ('FileManager:SSEC::Access') (1)
+WHEN  ('FileManager:SSEC::Call') (1)
+WHEN  ('FileManager:SSEC::Door') (1)
+WHEN  ('FileManager:SSEC::DoorGroup') (1)
+WHEN  ('FileManager:SSEC::Edit') (1)
+WHEN  ('FileManager:SSEC::Field') (1)
+WHEN  ('FileManager:SSEC::File') (1)
+WHEN  ('FileManager:SSEC::Procedure') (1)
+WHEN  ('FileManager:SSEC::Program') (1)
+WHEN  ('FileManager:SSEC::User') (1)
+WHEN  ('FileManager:SSEC::UserGroup') (1)
+WHEN  ('FileManager:SSEC::UserInGroup') (1)
+WHEN  ('FileManager:SalesPeople') (1)
+WHEN  ('FileManager:Shipments') (1)
+WHEN  ('FileManager:SpecialDescriptions') (1)
+WHEN  ('FileManager:States') (1)
+WHEN  ('FileManager:Status') (1)
+WHEN  ('FileManager:Terms') (1)
+WHEN  ('FileManager:UserLimits') (1)
+WHEN  ('FileManager:WorkOrderDetail') (1)
+WHEN  ('FileManager:WorkOrders') (1)
+WHEN  ('FileManager:XXTEMP') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:Change') (1)
+WHEN  ('RelationManager:ChangeLine') (1)
+WHEN  ('RelationManager:Customers') (1)
+WHEN  ('RelationManager:Departments') (1)
+WHEN  ('RelationManager:EngRepair') (1)
+WHEN  ('RelationManager:EngineeredWood') (1)
+WHEN  ('RelationManager:Family') (1)
+WHEN  ('RelationManager:Floor') (1)
+WHEN  ('RelationManager:Gable') (1)
+WHEN  ('RelationManager:Girder') (1)
+WHEN  ('RelationManager:Hanger') (1)
+WHEN  ('RelationManager:Invoices') (1)
+WHEN  ('RelationManager:LogFile') (1)
+WHEN  ('RelationManager:Roof') (1)
+WHEN  ('RelationManager:SSEC::Access') (1)
+WHEN  ('RelationManager:SSEC::Call') (1)
+WHEN  ('RelationManager:SSEC::Door') (1)
+WHEN  ('RelationManager:SSEC::DoorGroup') (1)
+WHEN  ('RelationManager:SSEC::Edit') (1)
+WHEN  ('RelationManager:SSEC::Field') (1)
+WHEN  ('RelationManager:SSEC::File') (1)
+WHEN  ('RelationManager:SSEC::Procedure') (1)
+WHEN  ('RelationManager:SSEC::Program') (1)
+WHEN  ('RelationManager:SSEC::User') (1)
+WHEN  ('RelationManager:SSEC::UserGroup') (1)
+WHEN  ('RelationManager:SSEC::UserInGroup') (1)
+WHEN  ('RelationManager:SalesPeople') (1)
+WHEN  ('RelationManager:Shipments') (1)
+WHEN  ('RelationManager:SpecialDescriptions') (1)
+WHEN  ('RelationManager:States') (1)
+WHEN  ('RelationManager:Status') (1)
+WHEN  ('RelationManager:Terms') (1)
+WHEN  ('RelationManager:UserLimits') (1)
+WHEN  ('RelationManager:WorkOrderDetail') (1)
+WHEN  ('RelationManager:WorkOrders') (1)
+WHEN  ('RelationManager:XXTEMP') (1)
+WHEN  ('Translator') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 76
+WHEN  ('ErrorManager') (1)
+WHEN  ('FileManager:Change') (1)
+WHEN  ('FileManager:ChangeLine') (1)
+WHEN  ('FileManager:Customers') (1)
+WHEN  ('FileManager:Departments') (1)
+WHEN  ('FileManager:EngRepair') (1)
+WHEN  ('FileManager:EngineeredWood') (1)
+WHEN  ('FileManager:Family') (1)
+WHEN  ('FileManager:Floor') (1)
+WHEN  ('FileManager:Gable') (1)
+WHEN  ('FileManager:Girder') (1)
+WHEN  ('FileManager:Hanger') (1)
+WHEN  ('FileManager:Invoices') (1)
+WHEN  ('FileManager:LogFile') (1)
+WHEN  ('FileManager:Roof') (1)
+WHEN  ('FileManager:SSEC::Access') (1)
+WHEN  ('FileManager:SSEC::Call') (1)
+WHEN  ('FileManager:SSEC::Door') (1)
+WHEN  ('FileManager:SSEC::DoorGroup') (1)
+WHEN  ('FileManager:SSEC::Edit') (1)
+WHEN  ('FileManager:SSEC::Field') (1)
+WHEN  ('FileManager:SSEC::File') (1)
+WHEN  ('FileManager:SSEC::Procedure') (1)
+WHEN  ('FileManager:SSEC::Program') (1)
+WHEN  ('FileManager:SSEC::User') (1)
+WHEN  ('FileManager:SSEC::UserGroup') (1)
+WHEN  ('FileManager:SSEC::UserInGroup') (1)
+WHEN  ('FileManager:SalesPeople') (1)
+WHEN  ('FileManager:Shipments') (1)
+WHEN  ('FileManager:SpecialDescriptions') (1)
+WHEN  ('FileManager:States') (1)
+WHEN  ('FileManager:Status') (1)
+WHEN  ('FileManager:Terms') (1)
+WHEN  ('FileManager:UserLimits') (1)
+WHEN  ('FileManager:WorkOrderDetail') (1)
+WHEN  ('FileManager:WorkOrders') (1)
+WHEN  ('FileManager:XXTEMP') (1)
+WHEN  ('FuzzyMatcher') (1)
+WHEN  ('INIManager') (1)
+WHEN  ('RelationManager:Change') (1)
+WHEN  ('RelationManager:ChangeLine') (1)
+WHEN  ('RelationManager:Customers') (1)
+WHEN  ('RelationManager:Departments') (1)
+WHEN  ('RelationManager:EngRepair') (1)
+WHEN  ('RelationManager:EngineeredWood') (1)
+WHEN  ('RelationManager:Family') (1)
+WHEN  ('RelationManager:Floor') (1)
+WHEN  ('RelationManager:Gable') (1)
+WHEN  ('RelationManager:Girder') (1)
+WHEN  ('RelationManager:Hanger') (1)
+WHEN  ('RelationManager:Invoices') (1)
+WHEN  ('RelationManager:LogFile') (1)
+WHEN  ('RelationManager:Roof') (1)
+WHEN  ('RelationManager:SSEC::Access') (1)
+WHEN  ('RelationManager:SSEC::Call') (1)
+WHEN  ('RelationManager:SSEC::Door') (1)
+WHEN  ('RelationManager:SSEC::DoorGroup') (1)
+WHEN  ('RelationManager:SSEC::Edit') (1)
+WHEN  ('RelationManager:SSEC::Field') (1)
+WHEN  ('RelationManager:SSEC::File') (1)
+WHEN  ('RelationManager:SSEC::Procedure') (1)
+WHEN  ('RelationManager:SSEC::Program') (1)
+WHEN  ('RelationManager:SSEC::User') (1)
+WHEN  ('RelationManager:SSEC::UserGroup') (1)
+WHEN  ('RelationManager:SSEC::UserInGroup') (1)
+WHEN  ('RelationManager:SalesPeople') (1)
+WHEN  ('RelationManager:Shipments') (1)
+WHEN  ('RelationManager:SpecialDescriptions') (1)
+WHEN  ('RelationManager:States') (1)
+WHEN  ('RelationManager:Status') (1)
+WHEN  ('RelationManager:Terms') (1)
+WHEN  ('RelationManager:UserLimits') (1)
+WHEN  ('RelationManager:WorkOrderDetail') (1)
+WHEN  ('RelationManager:WorkOrders') (1)
+WHEN  ('RelationManager:XXTEMP') (1)
+WHEN  ('Translator') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 76
+WHEN  ('ErrorManager') ('')
+WHEN  ('FileManager:Change') ('AStringValue')
+WHEN  ('FileManager:ChangeLine') ('AStringValue')
+WHEN  ('FileManager:Customers') ('AStringValue')
+WHEN  ('FileManager:Departments') ('AStringValue')
+WHEN  ('FileManager:EngRepair') ('AStringValue')
+WHEN  ('FileManager:EngineeredWood') ('AStringValue')
+WHEN  ('FileManager:Family') ('AStringValue')
+WHEN  ('FileManager:Floor') ('AStringValue')
+WHEN  ('FileManager:Gable') ('AStringValue')
+WHEN  ('FileManager:Girder') ('AStringValue')
+WHEN  ('FileManager:Hanger') ('AStringValue')
+WHEN  ('FileManager:Invoices') ('AStringValue')
+WHEN  ('FileManager:LogFile') ('AStringValue')
+WHEN  ('FileManager:Roof') ('AStringValue')
+WHEN  ('FileManager:SSEC::Access') ('AStringValue')
+WHEN  ('FileManager:SSEC::Call') ('AStringValue')
+WHEN  ('FileManager:SSEC::Door') ('AStringValue')
+WHEN  ('FileManager:SSEC::DoorGroup') ('AStringValue')
+WHEN  ('FileManager:SSEC::Edit') ('AStringValue')
+WHEN  ('FileManager:SSEC::Field') ('AStringValue')
+WHEN  ('FileManager:SSEC::File') ('AStringValue')
+WHEN  ('FileManager:SSEC::Procedure') ('AStringValue')
+WHEN  ('FileManager:SSEC::Program') ('AStringValue')
+WHEN  ('FileManager:SSEC::User') ('AStringValue')
+WHEN  ('FileManager:SSEC::UserGroup') ('AStringValue')
+WHEN  ('FileManager:SSEC::UserInGroup') ('AStringValue')
+WHEN  ('FileManager:SalesPeople') ('AStringValue')
+WHEN  ('FileManager:Shipments') ('AStringValue')
+WHEN  ('FileManager:SpecialDescriptions') ('AStringValue')
+WHEN  ('FileManager:States') ('AStringValue')
+WHEN  ('FileManager:Status') ('AStringValue')
+WHEN  ('FileManager:Terms') ('AStringValue')
+WHEN  ('FileManager:UserLimits') ('AStringValue')
+WHEN  ('FileManager:WorkOrderDetail') ('AStringValue')
+WHEN  ('FileManager:WorkOrders') ('AStringValue')
+WHEN  ('FileManager:XXTEMP') ('AStringValue')
+WHEN  ('FuzzyMatcher') ('')
+WHEN  ('INIManager') ('')
+WHEN  ('RelationManager:Change') ('AStringValue')
+WHEN  ('RelationManager:ChangeLine') ('AStringValue')
+WHEN  ('RelationManager:Customers') ('AStringValue')
+WHEN  ('RelationManager:Departments') ('AStringValue')
+WHEN  ('RelationManager:EngRepair') ('AStringValue')
+WHEN  ('RelationManager:EngineeredWood') ('AStringValue')
+WHEN  ('RelationManager:Family') ('AStringValue')
+WHEN  ('RelationManager:Floor') ('AStringValue')
+WHEN  ('RelationManager:Gable') ('AStringValue')
+WHEN  ('RelationManager:Girder') ('AStringValue')
+WHEN  ('RelationManager:Hanger') ('AStringValue')
+WHEN  ('RelationManager:Invoices') ('AStringValue')
+WHEN  ('RelationManager:LogFile') ('AStringValue')
+WHEN  ('RelationManager:Roof') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Access') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Call') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Door') ('AStringValue')
+WHEN  ('RelationManager:SSEC::DoorGroup') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Edit') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Field') ('AStringValue')
+WHEN  ('RelationManager:SSEC::File') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Procedure') ('AStringValue')
+WHEN  ('RelationManager:SSEC::Program') ('AStringValue')
+WHEN  ('RelationManager:SSEC::User') ('AStringValue')
+WHEN  ('RelationManager:SSEC::UserGroup') ('AStringValue')
+WHEN  ('RelationManager:SSEC::UserInGroup') ('AStringValue')
+WHEN  ('RelationManager:SalesPeople') ('AStringValue')
+WHEN  ('RelationManager:Shipments') ('AStringValue')
+WHEN  ('RelationManager:SpecialDescriptions') ('AStringValue')
+WHEN  ('RelationManager:States') ('AStringValue')
+WHEN  ('RelationManager:Status') ('AStringValue')
+WHEN  ('RelationManager:Terms') ('AStringValue')
+WHEN  ('RelationManager:UserLimits') ('AStringValue')
+WHEN  ('RelationManager:WorkOrderDetail') ('AStringValue')
+WHEN  ('RelationManager:WorkOrders') ('AStringValue')
+WHEN  ('RelationManager:XXTEMP') ('AStringValue')
+WHEN  ('Translator') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 76
+WHEN  ('ErrorManager') (0)
+WHEN  ('FileManager:Change') (0)
+WHEN  ('FileManager:ChangeLine') (0)
+WHEN  ('FileManager:Customers') (0)
+WHEN  ('FileManager:Departments') (0)
+WHEN  ('FileManager:EngRepair') (0)
+WHEN  ('FileManager:EngineeredWood') (0)
+WHEN  ('FileManager:Family') (0)
+WHEN  ('FileManager:Floor') (0)
+WHEN  ('FileManager:Gable') (0)
+WHEN  ('FileManager:Girder') (0)
+WHEN  ('FileManager:Hanger') (0)
+WHEN  ('FileManager:Invoices') (0)
+WHEN  ('FileManager:LogFile') (0)
+WHEN  ('FileManager:Roof') (0)
+WHEN  ('FileManager:SSEC::Access') (0)
+WHEN  ('FileManager:SSEC::Call') (0)
+WHEN  ('FileManager:SSEC::Door') (0)
+WHEN  ('FileManager:SSEC::DoorGroup') (0)
+WHEN  ('FileManager:SSEC::Edit') (0)
+WHEN  ('FileManager:SSEC::Field') (0)
+WHEN  ('FileManager:SSEC::File') (0)
+WHEN  ('FileManager:SSEC::Procedure') (0)
+WHEN  ('FileManager:SSEC::Program') (0)
+WHEN  ('FileManager:SSEC::User') (0)
+WHEN  ('FileManager:SSEC::UserGroup') (0)
+WHEN  ('FileManager:SSEC::UserInGroup') (0)
+WHEN  ('FileManager:SalesPeople') (0)
+WHEN  ('FileManager:Shipments') (0)
+WHEN  ('FileManager:SpecialDescriptions') (0)
+WHEN  ('FileManager:States') (0)
+WHEN  ('FileManager:Status') (0)
+WHEN  ('FileManager:Terms') (0)
+WHEN  ('FileManager:UserLimits') (0)
+WHEN  ('FileManager:WorkOrderDetail') (0)
+WHEN  ('FileManager:WorkOrders') (0)
+WHEN  ('FileManager:XXTEMP') (0)
+WHEN  ('FuzzyMatcher') (0)
+WHEN  ('INIManager') (0)
+WHEN  ('RelationManager:Change') (0)
+WHEN  ('RelationManager:ChangeLine') (0)
+WHEN  ('RelationManager:Customers') (0)
+WHEN  ('RelationManager:Departments') (0)
+WHEN  ('RelationManager:EngRepair') (0)
+WHEN  ('RelationManager:EngineeredWood') (0)
+WHEN  ('RelationManager:Family') (0)
+WHEN  ('RelationManager:Floor') (0)
+WHEN  ('RelationManager:Gable') (0)
+WHEN  ('RelationManager:Girder') (0)
+WHEN  ('RelationManager:Hanger') (0)
+WHEN  ('RelationManager:Invoices') (0)
+WHEN  ('RelationManager:LogFile') (0)
+WHEN  ('RelationManager:Roof') (0)
+WHEN  ('RelationManager:SSEC::Access') (0)
+WHEN  ('RelationManager:SSEC::Call') (0)
+WHEN  ('RelationManager:SSEC::Door') (0)
+WHEN  ('RelationManager:SSEC::DoorGroup') (0)
+WHEN  ('RelationManager:SSEC::Edit') (0)
+WHEN  ('RelationManager:SSEC::Field') (0)
+WHEN  ('RelationManager:SSEC::File') (0)
+WHEN  ('RelationManager:SSEC::Procedure') (0)
+WHEN  ('RelationManager:SSEC::Program') (0)
+WHEN  ('RelationManager:SSEC::User') (0)
+WHEN  ('RelationManager:SSEC::UserGroup') (0)
+WHEN  ('RelationManager:SSEC::UserInGroup') (0)
+WHEN  ('RelationManager:SalesPeople') (0)
+WHEN  ('RelationManager:Shipments') (0)
+WHEN  ('RelationManager:SpecialDescriptions') (0)
+WHEN  ('RelationManager:States') (0)
+WHEN  ('RelationManager:Status') (0)
+WHEN  ('RelationManager:Terms') (0)
+WHEN  ('RelationManager:UserLimits') (0)
+WHEN  ('RelationManager:WorkOrderDetail') (0)
+WHEN  ('RelationManager:WorkOrders') (0)
+WHEN  ('RelationManager:XXTEMP') (0)
+WHEN  ('Translator') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 2
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 2
+WHEN  ('FuzzyMatcher')TIMES 0
+WHEN  ('INIManager')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%OverrideThreaded DEPEND %File DEFAULT TIMES 0
+
+%OverrideCreate DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternal DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalSource DEPEND %File DEFAULT TIMES 0
+
+%OverrideExternalAPP DEPEND %File LONG TIMES 0
+
+%OverrideExport DEPEND %File LONG TIMES 0
+
+%FileDeclarationMode DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationThread DEPEND %File LONG TIMES 0
+
+%FileDeclarationBindable DEPEND %File LONG TIMES 0
+
+%FileDeclarationName DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationOver DEPEND %File DEFAULT TIMES 0
+
+%FileDeclarationType DEPEND %File LONG TIMES 0
+
+%OverrideOpenMode DEPEND %File DEFAULT TIMES 0
+
+%OverrideUserAccess DEPEND %File DEFAULT TIMES 0
+
+%OverrideOtherAccess DEPEND %File DEFAULT TIMES 0
+
+%OverrideLazyOpen DEPEND %File DEFAULT TIMES 0
+
+%StandardExternalModule DEPEND %Module LONG TIMES 3
+WHEN  ('conne001.clw') (1)
+WHEN  ('conne002.clw') (1)
+WHEN  ('connect55.clw') (1)
+
+%NoGenerateGlobals LONG  (0)
+%WindowManagerType DEFAULT  ('WindowManager')
+%ResetOnGainFocus LONG  (0)
+%AutoToolbar LONG  (1)
+%AutoRefresh LONG  (1)
+%ImageClass DEFAULT  ('ImageManager')
+%ErrorManagerType DEFAULT  ('ErrorClass')
+%DefaultErrorCategory DEFAULT  ('ABC')
+%StoreErrorHistory LONG  (0)
+%LimitStoredHistory LONG  (0)
+%ErrorHistoryThreshold DEFAULT  ('300')
+%HistoryViewTrigger DEFAULT  ('Level:Fatal')
+%PopupClass DEFAULT  ('PopupClass')
+%SelectFileClass DEFAULT  ('SelectFileClass')
+%ResizerType DEFAULT  ('WindowResizeClass')
+%ResizerDeFaultFindParents LONG  (1)
+%ResizerDefaultOptimizeMoves LONG  (1)
+%ResizerDefaultOptimizeRedraws LONG  (1)
+%INIClass DEFAULT  ('INIClass')
+%RunTimeTranslatorType DEFAULT  ('TranslatorClass')
+%ExtractionFilename DEFAULT  ('')
+%TranslationGroups MULTI LONG  ()
+%TranslationFile DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%TranslationGroup DEPEND %TranslationGroups DEFAULT TIMES 0
+
+%FuzzyMatcherClass DEFAULT  ('FuzzyClass')
+%FileManagerType DEFAULT  ('FileManager')
+%ViewManagerType DEFAULT  ('ViewManager')
+%RelationManagerType DEFAULT  ('RelationManager')
+%BrowserType DEFAULT  ('BrowseClass')
+%ActiveInvisible LONG  (0)
+%AllowUnfilled LONG  (0)
+%RetainRow LONG  (1)
+%BrowseEIPManagerType DEFAULT  ('BrowseEIPManager')
+%EditInPlaceType DEFAULT  ('EditEntryClass')
+%GridClass DEFAULT  ('GridClass')
+%SidebarClass DEFAULT  ('SidebarClass')
+%StepManagerType DEFAULT  ('StepClass')
+%StepManagerLongType DEFAULT  ('StepLongClass')
+%StepManagerRealType DEFAULT  ('StepRealClass')
+%StepManagerStringType DEFAULT  ('StepStringClass')
+%StepManagerCustomType DEFAULT  ('StepCustomClass')
+%StepLocatorType DEFAULT  ('StepLocatorClass')
+%EntryLocatorType DEFAULT  ('EntryLocatorClass')
+%IncrementalLocatorType DEFAULT  ('IncrementalLocatorClass')
+%FilteredLocatorType DEFAULT  ('FilterLocatorClass')
+%FileDropManagerType DEFAULT  ('FileDropClass')
+%FileDropComboManagerType DEFAULT  ('FileDropComboClass')
+%QBEFormType DEFAULT  ('QueryFormClass')
+%QBEFormVisualType DEFAULT  ('QueryFormVisual')
+%QBEListType DEFAULT  ('QueryListClass')
+%QBEListVisualType DEFAULT  ('QueryListVisual')
+%ProcessType DEFAULT  ('ProcessClass')
+%PrintPreviewType DEFAULT  ('PrintPreviewClass')
+%ReportManagerType DEFAULT  ('ReportManager')
+%AsciiViewerClass DEFAULT  ('AsciiViewerClass')
+%AsciiSearchClass DEFAULT  ('AsciiSearchClass')
+%AsciiPrintClass DEFAULT  ('AsciiPrintClass')
+%AsciiFileManagerType DEFAULT  ('AsciiFileClass')
+%ToolbarClass DEFAULT  ('ToolbarClass')
+%ToolbarListBoxType DEFAULT  ('ToolbarListboxClass')
+%ToolbarRelTreeType DEFAULT  ('ToolbarReltreeClass')
+%ToolbarUpdateClassType DEFAULT  ('ToolbarUpdateClass')
+%OverrideAbcSettings LONG  (0)
+%AbcSourceLocation DEFAULT  ('LINK')
+%AbcLibraryName DEFAULT  ('')
+%WindowFrameDragging LONG  (0)
+[ADDITION]
+NAME ClarioNET ClarioNETClient
+[INSTANCE]
+INSTANCE 1
+[PROMPTS]
+%ClarioNETEnabled LONG  (1)
+%ClarioNETUseCPCSPrvw LONG  (0)
+%ClarioNETAutoGenProcs LONG  (1)
+%ClarioNETAutoGenProc1 LONG  (1)
+%ClarioNETAutoGenProc2 LONG  (1)
+%ClarioNETAutoGenProc3 LONG  (1)
+[PERSIST]
+%SaveCreateLocalMap DEFAULT  ('1')
+%GenerationCompleted DEPEND %Module DEFAULT TIMES 60
+WHEN  ('CONNE001.clw') ('1')
+WHEN  ('CONNE002.clw') ('1')
+WHEN  ('CONNE003.clw') ('1')
+WHEN  ('CONNE004.clw') ('1')
+WHEN  ('CONNECT.clw') ('1')
+WHEN  ('CONNEC~1.clw') ('1')
+WHEN  ('Clrnt55c.lib') ('')
+WHEN  ('Conne001.clw') ('1')
+WHEN  ('Conne002.clw') ('1')
+WHEN  ('Conne003.clw') ('1')
+WHEN  ('Connect.clw') ('1')
+WHEN  ('LITTC001.clw') ('1')
+WHEN  ('LITTC002.clw') ('1')
+WHEN  ('LITTC003.clw') ('1')
+WHEN  ('LITTC004.clw') ('1')
+WHEN  ('LITTC005.clw') ('1')
+WHEN  ('LITTC006.clw') ('1')
+WHEN  ('LITTC007.clw') ('1')
+WHEN  ('LITTC008.clw') ('1')
+WHEN  ('LITTCONN.clw') ('1')
+WHEN  ('LittC001.clw') ('1')
+WHEN  ('LittC002.clw') ('1')
+WHEN  ('LittC003.clw') ('1')
+WHEN  ('LittC004.clw') ('1')
+WHEN  ('LittConn.clw') ('1')
+WHEN  ('Lsdecomp.lib') ('')
+WHEN  ('Prntprvw.lib') ('')
+WHEN  ('REMOT001.clw') ('1')
+WHEN  ('REMOT002.clw') ('1')
+WHEN  ('REMOT003.clw') ('')
+WHEN  ('REMOT004.clw') ('')
+WHEN  ('REMOT005.clw') ('')
+WHEN  ('REMOTE.clw') ('1')
+WHEN  ('Remot001.clw') ('1')
+WHEN  ('Remot002.clw') ('1')
+WHEN  ('Remot003.clw') ('1')
+WHEN  ('Remot004.clw') ('1')
+WHEN  ('Remot005.clw') ('1')
+WHEN  ('Remote.clw') ('1')
+WHEN  ('conne001.clw') ('1')
+WHEN  ('conne002.clw') ('1')
+WHEN  ('conne003.clw') ('1')
+WHEN  ('conne004.clw') ('1')
+WHEN  ('conne005.clw') ('1')
+WHEN  ('conne006.clw') ('1')
+WHEN  ('conne007.clw') ('1')
+WHEN  ('connect.clw') ('1')
+WHEN  ('connect55.clw') ('1')
+WHEN  ('lfsec.lib') ('')
+WHEN  ('littc001.clw') ('1')
+WHEN  ('littc002.clw') ('1')
+WHEN  ('littc003.clw') ('1')
+WHEN  ('littc004.clw') ('1')
+WHEN  ('littconn.clw') ('1')
+WHEN  ('remot001.clw') ('1')
+WHEN  ('remot002.clw') ('1')
+WHEN  ('remot003.clw') ('1')
+WHEN  ('remot004.clw') ('1')
+WHEN  ('remot005.clw') ('1')
+WHEN  ('remote.clw') ('1')
+
+%LastTarget32 DEFAULT  ('1')
+%LastProgramExtension DEFAULT  ('EXE')
+%LastApplicationDebug DEFAULT  ('')
+%LastApplicationLocalLibrary DEFAULT  ('1')
+[PROJECT]
+-- Generator
+#noedit
+#system win32
+#model clarion lib
+#set RELEASE = on
+#pragma debug(vid=>off)
+#pragma optimize(cpu=>386)
+#pragma define(_ABCDllMode_=>0)
+#pragma define(_ABCLinkMode_=>1)
+#pragma link_option(icon=>"connect.ico")
+#compile "connect55.clw" /define(GENERATED=>on) -- GENERATED
+#compile "conne001.clw" /define(GENERATED=>on) -- GENERATED
+#compile "conne002.clw" /define(GENERATED=>on) -- GENERATED
+#pragma link("C%V%ASC%X%%L%.LIB") -- GENERATED
+#link "connect-optima-v16.exe"
+[PROGRAM]
+[COMMON]
+FROM ABC ABC
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Glo : File Name:'),USE(?Glo:FileName:Prompt)
+! ENTRY(@s100),USE(Glo:FileName)
+[REPORTCONTROLS]
+! STRING(@s100),USE(Glo:FileName)
+Glo:FileName             STRING('c:\Windows\winsa.inf {80}')
+!!> IDENT(4294967230),INITIAL('c:\Windows\winsa.inf'),PROMPT('Glo : File Name:'),HEADER('Glo : File Name'),PICTURE(@s100)
+[SCREENCONTROLS]
+! PROMPT('Glo : Archivo PDF:'),USE(?Glo:ArchivoPDF:Prompt)
+! ENTRY(@s200),USE(Glo:ArchivoPDF)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:ArchivoPDF)
+Glo:ArchivoPDF           STRING(200)
+!!> IDENT(4294967239),PROMPT('Glo : Archivo PDF:'),HEADER('Glo : Archivo PDF'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector PDF:'),USE(?Glo:LectorPDF:Prompt)
+! ENTRY(@s200),USE(Glo:LectorPDF)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorPDF)
+Glo:LectorPDF            STRING(200)
+!!> IDENT(4294967238),PROMPT('Glo : Lector PDF:'),HEADER('Glo : Lector PDF'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector CFD:'),USE(?Glo:LectorCFD:Prompt)
+! ENTRY(@s200),USE(Glo:LectorCFD)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorCFD)
+Glo:LectorCFD            STRING(200)
+!!> IDENT(4294967237),PROMPT('Glo : Lector CFD:'),HEADER('Glo : Lector CFD'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector TXT:'),USE(?Glo:LectorTXT:Prompt)
+! ENTRY(@s200),USE(Glo:LectorTXT)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorTXT)
+Glo:LectorTXT            STRING(200)
+!!> IDENT(4294967236),PROMPT('Glo : Lector TXT:'),HEADER('Glo : Lector TXT'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector CSV:'),USE(?Glo:LectorCSV:Prompt)
+! ENTRY(@s200),USE(Glo:LectorCSV)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorCSV)
+Glo:LectorCSV            STRING(200)
+!!> IDENT(4294967225),PROMPT('Glo : Lector CSV:'),HEADER('Glo : Lector CSV'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector XML:'),USE(?Glo:LectorXML:Prompt)
+! ENTRY(@s200),USE(Glo:LectorXML)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorXML)
+Glo:LectorXML            STRING(200)
+!!> IDENT(4294967235),PROMPT('Glo : Lector XML:'),HEADER('Glo : Lector XML'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector DBF:'),USE(?Glo:LectorDBF:Prompt)
+! ENTRY(@s200),USE(Glo:LectorDBF)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorDBF)
+Glo:LectorDBF            STRING(200)
+!!> IDENT(4294967234),PROMPT('Glo : Lector DBF:'),HEADER('Glo : Lector DBF'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Lector BAT:'),USE(?Glo:LectorBAT:Prompt)
+! ENTRY(@s200),USE(Glo:LectorBAT)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:LectorBAT)
+Glo:LectorBAT            STRING(200)
+!!> IDENT(4294967219),PROMPT('Glo : Lector BAT:'),HEADER('Glo : Lector BAT'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Archivos Recibidos:'),USE(?Glo:ArchivosRecibidos:Prompt)
+! ENTRY(@s200),USE(Glo:ArchivosRecibidos)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:ArchivosRecibidos)
+Glo:ArchivosRecibidos    STRING(200)
+!!> IDENT(4294967233),PROMPT('Glo : Archivos Recibidos:'),HEADER('Glo : Archivos Recibidos'),PICTURE(@s200)
+[SCREENCONTROLS]
+! PROMPT('Glo : Archivo Mostrar:'),USE(?Glo:ArchivoMostrar:Prompt)
+! ENTRY(@s200),USE(Glo:ArchivoMostrar)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Glo:ArchivoMostrar)
+Glo:ArchivoMostrar       STRING(200)
+!!> IDENT(4294967232),PROMPT('Glo : Archivo Mostrar:'),HEADER('Glo : Archivo Mostrar'),PICTURE(@s200)
+[PROMPTS]
+[EMBED]
+EMBED %ClarioNETClientProcedureCODE
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+!Analizar archivo y mostrarlo
+Begin
+    CASE MESSAGE('Archivo descargado y listo para Guardar o Leer','Descarga de Archivo',ICON:Question,'&Abrir|&Guardar|&Cancelar',2,0)
+
+    OF 1                            !Abrir el archivo Bajado
+
+        Glo:ArchivoMostrar=Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)
+        If P1='PDF' Then Run(Clip(Glo:LectorPDF)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Elsif P1='CFD' Then Run(Clip(Glo:LectorCFD)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Elsif P1='TXT' Then Run(Clip(Glo:LectorTXT)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Elsif P1='CSV' Then Run(Clip(Glo:LectorCSV)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Elsif P1='XML' Then Run(Clip(Glo:LectorXML)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Elsif P1='DBF' Then Run(Clip(Glo:LectorDBF)&' "'&Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)&'"')
+        Else
+            Message('No existe programa para abrir el tipo de archivo '&Clip(P1))
+        End
+
+    OF 2                            !Guardar el archivo bajado en la carpeta de Archivos Recibidos
+        If Clip(Glo:ArchivosRecibidos)='' Then
+            Glo:ArchivoMostrar=Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6)
+            Glo:ArchivosRecibidos=Clip(CLRNT_C.ClientTempDirectory)
+        Else
+            Glo:ArchivoMostrar=Upper(Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6))
+            If P1='CFD' And Sub(Glo:ArchivoMostrar,1,4)='ACFD' Then
+                Glo:ArchivoMostrar=Sub(Clip(Glo:ArchivoMostrar),5,Instring('-F.XML',Clip(Glo:ArchivoMostrar),1,1)-5)&'.XML'
+            End
+            Copy(Clip(CLRNT_C.ClientTempDirectory)&Clip(P2)&Clip(P3)&Clip(P4)&Clip(P5)&Clip(P6),Clip(Glo:ArchivosRecibidos)&'\'&Clip(Glo:ArchivoMostrar))
+        End
+        Message('Se guardó el archivo en tu máquina en la carpeta: '&Clip(Glo:ArchivosRecibidos)&'\'&Clip(Glo:ArchivoMostrar))
+    OF 3
+        !No ejecutar acción
+    END
+End
+[END]
+EMBED %ClarioNETSendClientFilesToServerCODE
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Begin
+    FREE(FileListQueue)
+    RetVal# = FILEDIALOG('Selecciona los archivos a enviar (Locales)', FileList, Extension,11000b)
+    IF RetVal# = 0 THEN
+        RETURN('No seleccionaste archivos para enviar')
+    Else
+        !Message('Archivos '&FileList)
+    END
+    FileList2=FileList
+    Pos1 = INSTRING('|', FileList2, 1, 1)
+    !Si solo es 1 archivo
+    IF Pos1 = 0
+        FLQ:Filename = CLIP(FileList2)
+        ADD(FileListQueue)
+    ELSE
+        PathName = FileList2[1 : Pos1-1] & '\'
+        FileList2 = FileList2[Pos1+1 : Len(Left(Filelist2))-Pos1]
+        !Message('Path = '&PathName&'|resto: '&Clip(Filelist2))
+        Loop
+            POS2 = INSTRING('|', FileList2, 1, 1)
+            IF POS2=0 Then
+                FLQ:Filename = PathName & Clip(FileList2)
+                ADD(FileListQueue)
+                Break
+            Else
+                FLQ:Filename = PathName & Sub(FileList2,1, Pos2 - 1)
+                ADD(FileListQueue)
+                FileList2=Sub(FileList2,Pos2+1,Len(Left(FileList2))-Pos2)
+            End
+        End
+    END
+    !This code just to displays the queue
+    LOOP I#=1 TO RECORDS(FileListQueue)
+        GET(FileListQueue, I#)
+        If Instring('XML',Upper(FLQ:Filename),1,1)=0 And Instring('PDF',Upper(FLQ:Filename),1,1)=0 Then Delete(FileListQueue).
+    END
+    RETURN('ok')
+End
+[END]
+EMBED %ClarioNETSendClientFilesToServerDATA
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+FileList STRING(5000)
+FileList2 STRING(5000)
+Extension STRING('XML,PDF|*.XML;*.PDF|Imagen|*.jpg;*.gif;*.wmf|Todos|*.*')
+PathName CSTRING(FILE:MaxFilePath)
+Pos1 SHORT
+Pos2 SHORT
+[END]
+[END]
+[END]
+[MODULE]
+[COMMON]
+FROM ABC GENERATED
+MODIFIED '2001/01/31' '12:19:18'
+[PROMPTS]
+[PROCEDURE]
+NAME ClarioNET:ConnectWindow
+[COMMON]
+DESCRIPTION 'Main Procedure Called if ClarioNET Active'
+FROM ABC Window
+MODIFIED '2024/11/23' '16:18:54'
+[DATA]
+[SCREENCONTROLS]
+! ENTRY(@s127),USE(FullProgramID)
+[REPORTCONTROLS]
+! STRING(@s127),USE(FullProgramID)
+FullProgramID            STRING(127)
+!!> IDENT(4294967249),PICTURE(@s127)
+[SCREENCONTROLS]
+! PROMPT('LOC : Auto Connect Timer:'),USE(?LOC:AutoConnectTimer:Prompt)
+! ENTRY(@n-14),USE(LOC:AutoConnectTimer),RIGHT
+[REPORTCONTROLS]
+! STRING(@n-14),USE(LOC:AutoConnectTimer),RIGHT
+LOC:AutoConnectTimer     LONG(500)
+!!> IDENT(4294967248),INITIAL('500'),PROMPT('LOC : Auto Connect Timer:'),HEADER('LOC : Auto Connect Timer'),PICTURE(@n-14),JUSTIFY(RIGHT)
+[SCREENCONTROLS]
+! CHECK('ISAPI Mode?'),USE(LOC:ISAPI_Mode)
+[REPORTCONTROLS]
+! STRING(@n3),USE(LOC:ISAPI_Mode)
+LOC:ISAPI_Mode           BYTE(FALSE)
+!!> IDENT(4294967247),INITIAL('FALSE'),PROMPT('ISAPI Mode?'),HEADER('LOC : ISAPI Mode'),PICTURE(@n3)
+[SCREENCONTROLS]
+! PROMPT('LOC : ISAPI Broker Ver:'),USE(?LOC:ISAPI_Broker_Ver:Prompt)
+! COMBO(@s3),USE(LOC:ISAPI_Broker_Ver),DROP(10),FROM('5.0|5.5')
+[REPORTCONTROLS]
+! STRING(@s3),USE(LOC:ISAPI_Broker_Ver)
+LOC:ISAPI_Broker_Ver     STRING('5.5')
+!!> IDENT(4294967246),VALID(INLIST('5.0|5.5')),INITIAL('5.5'),PROMPT('LOC : ISAPI Broker Ver:'),HEADER('LOC : ISAPI Broker Ver'),PICTURE(@s3)
+[SCREENCONTROLS]
+! PROMPT('Loc : Lugar Conectar:'),USE(?Loc:LugarConectar:Prompt)
+! LIST,USE(Loc:LugarConectar),DROP(5),FROM('Antyr Principal|Antyr Secundario|Antyr Sta. Rosa|Antyr Emergente| ---- | Práctica Principal|Práctica Secundario|Práctica Sta. Rosa|Práctica Emergente')
+[REPORTCONTROLS]
+! STRING(@s40),USE(Loc:LugarConectar)
+Loc:LugarConectar        STRING(40)
+!!> IDENT(4294967244),VALID(INLIST('Antyr Principal|Antyr Secundario|Antyr Sta. Rosa|Antyr Emergente| ---- | Práctica Principal|Práctica Secundario|Práctica Sta. Rosa|Práctica Emergente')),PROMPT('Loc : Lugar Conectar:'),HEADER('Loc : Lugar Conectar'),PICTURE(@s40)
+[SCREENCONTROLS]
+! PROMPT('Loc : IP:'),USE(?Loc:IP:Prompt)
+! ENTRY(@s35),USE(Loc:IP)
+[REPORTCONTROLS]
+! STRING(@s35),USE(Loc:IP)
+Loc:IP                   STRING(35)
+!!> IDENT(4294967241),PROMPT('Loc : IP:'),HEADER('Loc : IP'),PICTURE(@s35)
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', |
+  'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%Parameters DEFAULT  ('')
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (0)
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ButtonAction DEPEND %Control DEFAULT TIMES 36
+WHEN  ('') ('No Special Action')
+WHEN  ('?B_Emergente') ('No Special Action')
+WHEN  ('?B_Operativo') ('No Special Action')
+WHEN  ('?B_Operativo_2') ('No Special Action')
+WHEN  ('?B_Practica') ('No Special Action')
+WHEN  ('?B_RutasConnect') ('Call a Procedure')
+WHEN  ('?B_ServerEmergente') ('No Special Action')
+WHEN  ('?Button:Options') ('No Special Action')
+WHEN  ('?ClientTempDirectory') ('No Special Action')
+WHEN  ('?Exit') ('No Special Action')
+WHEN  ('?FileDialog') ('No Special Action')
+WHEN  ('?FullProgramID') ('No Special Action')
+WHEN  ('?Group2') ('No Special Action')
+WHEN  ('?HostProgramDirectory') ('No Special Action')
+WHEN  ('?HostProgramName') ('No Special Action')
+WHEN  ('?Image1') ('No Special Action')
+WHEN  ('?Image2') ('No Special Action')
+WHEN  ('?Image3') ('No Special Action')
+WHEN  ('?LOC:ISAPI_Broker_Ver') ('No Special Action')
+WHEN  ('?LOC:ISAPI_Mode') ('No Special Action')
+WHEN  ('?Loc:IP') ('No Special Action')
+WHEN  ('?Panel2') ('No Special Action')
+WHEN  ('?Panel2:2') ('No Special Action')
+WHEN  ('?Prompt2') ('No Special Action')
+WHEN  ('?ProxyGroup') ('No Special Action')
+WHEN  ('?ProxyServer') ('No Special Action')
+WHEN  ('?ProxyServerPrompt') ('No Special Action')
+WHEN  ('?ServerPort') ('No Special Action')
+WHEN  ('?Sheet1') ('No Special Action')
+WHEN  ('?String11') ('No Special Action')
+WHEN  ('?Tab:Logo') ('No Special Action')
+WHEN  ('?Tab:Options') ('No Special Action')
+WHEN  ('?UsePreconfig') ('No Special Action')
+WHEN  ('?UseProxy') ('No Special Action')
+WHEN  ('?lpszServerName') ('No Special Action')
+WHEN  ('?unnamed') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?B_Emergente') ('')
+WHEN  ('?B_Operativo') ('')
+WHEN  ('?B_Operativo_2') ('')
+WHEN  ('?B_Practica') ('')
+WHEN  ('?B_RutasConnect') ('')
+WHEN  ('?B_ServerEmergente') ('')
+WHEN  ('?Button:Options') ('')
+WHEN  ('?Exit') ('')
+WHEN  ('?FileDialog') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?B_Emergente') ('')
+WHEN  ('?B_Operativo') ('')
+WHEN  ('?B_Operativo_2') ('')
+WHEN  ('?B_Practica') ('')
+WHEN  ('?B_RutasConnect') ('')
+WHEN  ('?B_ServerEmergente') ('')
+WHEN  ('?Button:Options') ('')
+WHEN  ('?Exit') ('')
+WHEN  ('?FileDialog') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 9
+WHEN  ('?B_Emergente') ()
+WHEN  ('?B_Operativo') ()
+WHEN  ('?B_Operativo_2') ()
+WHEN  ('?B_Practica') ()
+WHEN  ('?B_RutasConnect') (RutasConnect)
+WHEN  ('?B_ServerEmergente') ()
+WHEN  ('?Button:Options') ()
+WHEN  ('?Exit') ()
+WHEN  ('?FileDialog') ()
+
+%ButtonThread DEPEND %Control LONG TIMES 9
+WHEN  ('?B_Emergente') (0)
+WHEN  ('?B_Operativo') (0)
+WHEN  ('?B_Operativo_2') (0)
+WHEN  ('?B_Practica') (0)
+WHEN  ('?B_RutasConnect') (1)
+WHEN  ('?B_ServerEmergente') (0)
+WHEN  ('?Button:Options') (0)
+WHEN  ('?Exit') (0)
+WHEN  ('?FileDialog') (0)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 36
+WHEN  ('') ('25000')
+WHEN  ('?B_Emergente') ('25000')
+WHEN  ('?B_Operativo') ('25000')
+WHEN  ('?B_Operativo_2') ('25000')
+WHEN  ('?B_Practica') ('25000')
+WHEN  ('?B_RutasConnect') ('25000')
+WHEN  ('?B_ServerEmergente') ('25000')
+WHEN  ('?Button:Options') ('25000')
+WHEN  ('?ClientTempDirectory') ('25000')
+WHEN  ('?Exit') ('25000')
+WHEN  ('?FileDialog') ('25000')
+WHEN  ('?FullProgramID') ('25000')
+WHEN  ('?Group2') ('25000')
+WHEN  ('?HostProgramDirectory') ('25000')
+WHEN  ('?HostProgramName') ('25000')
+WHEN  ('?Image1') ('25000')
+WHEN  ('?Image2') ('25000')
+WHEN  ('?Image3') ('25000')
+WHEN  ('?LOC:ISAPI_Broker_Ver') ('25000')
+WHEN  ('?LOC:ISAPI_Mode') ('25000')
+WHEN  ('?Loc:IP') ('25000')
+WHEN  ('?Panel2') ('25000')
+WHEN  ('?Panel2:2') ('25000')
+WHEN  ('?Prompt2') ('25000')
+WHEN  ('?ProxyGroup') ('25000')
+WHEN  ('?ProxyServer') ('25000')
+WHEN  ('?ProxyServerPrompt') ('25000')
+WHEN  ('?ServerPort') ('25000')
+WHEN  ('?Sheet1') ('25000')
+WHEN  ('?String11') ('25000')
+WHEN  ('?Tab:Logo') ('25000')
+WHEN  ('?Tab:Options') ('25000')
+WHEN  ('?UsePreconfig') ('25000')
+WHEN  ('?UseProxy') ('25000')
+WHEN  ('?lpszServerName') ('25000')
+WHEN  ('?unnamed') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?B_Emergente') ('')
+WHEN  ('?B_Operativo') ('')
+WHEN  ('?B_Operativo_2') ('')
+WHEN  ('?B_Practica') ('')
+WHEN  ('?B_RutasConnect') ('')
+WHEN  ('?B_ServerEmergente') ('')
+WHEN  ('?Button:Options') ('')
+WHEN  ('?Exit') ('')
+WHEN  ('?FileDialog') ('')
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 9
+WHEN  ('?B_Emergente') ()
+WHEN  ('?B_Operativo') ()
+WHEN  ('?B_Operativo_2') ()
+WHEN  ('?B_Practica') ()
+WHEN  ('?B_RutasConnect') ()
+WHEN  ('?B_ServerEmergente') ()
+WHEN  ('?Button:Options') ()
+WHEN  ('?Exit') ()
+WHEN  ('?FileDialog') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 9
+WHEN  ('?B_Emergente') (0)
+WHEN  ('?B_Operativo') (0)
+WHEN  ('?B_Operativo_2') (0)
+WHEN  ('?B_Practica') (0)
+WHEN  ('?B_RutasConnect') (0)
+WHEN  ('?B_ServerEmergente') (0)
+WHEN  ('?Button:Options') (0)
+WHEN  ('?Exit') (0)
+WHEN  ('?FileDialog') (0)
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 36
+WHEN  ('') ('None')
+WHEN  ('?B_Emergente') ('None')
+WHEN  ('?B_Operativo') ('None')
+WHEN  ('?B_Operativo_2') ('None')
+WHEN  ('?B_Practica') ('None')
+WHEN  ('?B_RutasConnect') ('None')
+WHEN  ('?B_ServerEmergente') ('None')
+WHEN  ('?Button:Options') ('None')
+WHEN  ('?ClientTempDirectory') ('None')
+WHEN  ('?Exit') ('None')
+WHEN  ('?FileDialog') ('None')
+WHEN  ('?FullProgramID') ('None')
+WHEN  ('?Group2') ('None')
+WHEN  ('?HostProgramDirectory') ('None')
+WHEN  ('?HostProgramName') ('None')
+WHEN  ('?Image1') ('None')
+WHEN  ('?Image2') ('None')
+WHEN  ('?Image3') ('None')
+WHEN  ('?LOC:ISAPI_Broker_Ver') ('None')
+WHEN  ('?LOC:ISAPI_Mode') ('None')
+WHEN  ('?Loc:IP') ('None')
+WHEN  ('?Panel2') ('None')
+WHEN  ('?Panel2:2') ('None')
+WHEN  ('?Prompt2') ('None')
+WHEN  ('?ProxyGroup') ('None')
+WHEN  ('?ProxyServer') ('None')
+WHEN  ('?ProxyServerPrompt') ('None')
+WHEN  ('?ServerPort') ('None')
+WHEN  ('?Sheet1') ('None')
+WHEN  ('?String11') ('None')
+WHEN  ('?Tab:Logo') ('None')
+WHEN  ('?Tab:Options') ('None')
+WHEN  ('?UsePreconfig') ('None')
+WHEN  ('?UseProxy') ('None')
+WHEN  ('?lpszServerName') ('None')
+WHEN  ('?unnamed') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?B_Emergente') ('')
+WHEN  ('?B_Operativo') ('')
+WHEN  ('?B_Operativo_2') ('')
+WHEN  ('?B_Practica') ('')
+WHEN  ('?B_RutasConnect') ('')
+WHEN  ('?B_ServerEmergente') ('')
+WHEN  ('?Button:Options') ('')
+WHEN  ('?Exit') ('')
+WHEN  ('?FileDialog') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 9
+WHEN  ('?B_Emergente') ()
+WHEN  ('?B_Operativo') ()
+WHEN  ('?B_Operativo_2') ()
+WHEN  ('?B_Practica') ()
+WHEN  ('?B_RutasConnect') ()
+WHEN  ('?B_ServerEmergente') ()
+WHEN  ('?Button:Options') ()
+WHEN  ('?Exit') ()
+WHEN  ('?FileDialog') ()
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 4
+WHEN  ('?ClientTempDirectory') ()
+WHEN  ('?HostProgramDirectory') ()
+WHEN  ('?Loc:IP') ()
+WHEN  ('?ProxyServer') ()
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 4
+WHEN  ('?ClientTempDirectory') ()
+WHEN  ('?HostProgramDirectory') ()
+WHEN  ('?Loc:IP') ()
+WHEN  ('?ProxyServer') ()
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 4
+WHEN  ('?ClientTempDirectory') ()
+WHEN  ('?HostProgramDirectory') ()
+WHEN  ('?Loc:IP') ()
+WHEN  ('?ProxyServer') ()
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 4
+WHEN  ('?ClientTempDirectory') ()
+WHEN  ('?HostProgramDirectory') ()
+WHEN  ('?Loc:IP') ()
+WHEN  ('?ProxyServer') ()
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 38
+WHEN  ('') (1)
+WHEN  ('?B_Emergente') (1)
+WHEN  ('?B_Operativo') (1)
+WHEN  ('?B_Operativo_2') (1)
+WHEN  ('?B_Practica') (1)
+WHEN  ('?B_RutasConnect') (1)
+WHEN  ('?B_ServerEmergente') (1)
+WHEN  ('?Button:Options') (1)
+WHEN  ('?ClientTempDirectory') (1)
+WHEN  ('?Exit') (1)
+WHEN  ('?FileDialog') (1)
+WHEN  ('?FullProgramID') (1)
+WHEN  ('?Group2') (1)
+WHEN  ('?HostProgramDirectory') (1)
+WHEN  ('?HostProgramName') (1)
+WHEN  ('?Image1') (1)
+WHEN  ('?Image2') (1)
+WHEN  ('?Image3') (1)
+WHEN  ('?LOC:ISAPI_Broker_Ver') (1)
+WHEN  ('?LOC:ISAPI_Mode') (1)
+WHEN  ('?Loc:IP') (1)
+WHEN  ('?Panel2') (1)
+WHEN  ('?Panel2:2') (1)
+WHEN  ('?Prompt2') (1)
+WHEN  ('?ProxyGroup') (1)
+WHEN  ('?ProxyPassword2') (1)
+WHEN  ('?ProxyServer') (1)
+WHEN  ('?ProxyServerPrompt') (1)
+WHEN  ('?ProxyUserName2') (1)
+WHEN  ('?ServerPort') (1)
+WHEN  ('?Sheet1') (1)
+WHEN  ('?String11') (1)
+WHEN  ('?Tab:Logo') (1)
+WHEN  ('?Tab:Options') (1)
+WHEN  ('?UsePreconfig') (1)
+WHEN  ('?UseProxy') (1)
+WHEN  ('?lpszServerName') (1)
+WHEN  ('?unnamed') (1)
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 36
+WHEN  ('')TIMES 0
+WHEN  ('?B_Emergente')TIMES 0
+WHEN  ('?B_Operativo')TIMES 0
+WHEN  ('?B_Operativo_2')TIMES 0
+WHEN  ('?B_Practica')TIMES 0
+WHEN  ('?B_RutasConnect')TIMES 0
+WHEN  ('?B_ServerEmergente')TIMES 0
+WHEN  ('?Button:Options')TIMES 0
+WHEN  ('?ClientTempDirectory')TIMES 0
+WHEN  ('?Exit')TIMES 0
+WHEN  ('?FileDialog')TIMES 0
+WHEN  ('?FullProgramID')TIMES 0
+WHEN  ('?Group2')TIMES 0
+WHEN  ('?HostProgramDirectory')TIMES 0
+WHEN  ('?HostProgramName')TIMES 0
+WHEN  ('?Image1')TIMES 0
+WHEN  ('?Image2')TIMES 0
+WHEN  ('?Image3')TIMES 0
+WHEN  ('?LOC:ISAPI_Broker_Ver')TIMES 0
+WHEN  ('?LOC:ISAPI_Mode')TIMES 0
+WHEN  ('?Loc:IP')TIMES 0
+WHEN  ('?Panel2')TIMES 0
+WHEN  ('?Panel2:2')TIMES 0
+WHEN  ('?Prompt2')TIMES 0
+WHEN  ('?ProxyGroup')TIMES 0
+WHEN  ('?ProxyServer')TIMES 0
+WHEN  ('?ProxyServerPrompt')TIMES 0
+WHEN  ('?ServerPort')TIMES 0
+WHEN  ('?Sheet1')TIMES 0
+WHEN  ('?String11')TIMES 0
+WHEN  ('?Tab:Logo')TIMES 0
+WHEN  ('?Tab:Options')TIMES 0
+WHEN  ('?UsePreconfig')TIMES 0
+WHEN  ('?UseProxy')TIMES 0
+WHEN  ('?lpszServerName')TIMES 0
+WHEN  ('?unnamed')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 36
+WHEN  ('')TIMES 0
+WHEN  ('?B_Emergente')TIMES 0
+WHEN  ('?B_Operativo')TIMES 0
+WHEN  ('?B_Operativo_2')TIMES 0
+WHEN  ('?B_Practica')TIMES 0
+WHEN  ('?B_RutasConnect')TIMES 0
+WHEN  ('?B_ServerEmergente')TIMES 0
+WHEN  ('?Button:Options')TIMES 0
+WHEN  ('?ClientTempDirectory')TIMES 0
+WHEN  ('?Exit')TIMES 0
+WHEN  ('?FileDialog')TIMES 0
+WHEN  ('?FullProgramID')TIMES 0
+WHEN  ('?Group2')TIMES 0
+WHEN  ('?HostProgramDirectory')TIMES 0
+WHEN  ('?HostProgramName')TIMES 0
+WHEN  ('?Image1')TIMES 0
+WHEN  ('?Image2')TIMES 0
+WHEN  ('?Image3')TIMES 0
+WHEN  ('?LOC:ISAPI_Broker_Ver')TIMES 0
+WHEN  ('?LOC:ISAPI_Mode')TIMES 0
+WHEN  ('?Loc:IP')TIMES 0
+WHEN  ('?Panel2')TIMES 0
+WHEN  ('?Panel2:2')TIMES 0
+WHEN  ('?Prompt2')TIMES 0
+WHEN  ('?ProxyGroup')TIMES 0
+WHEN  ('?ProxyServer')TIMES 0
+WHEN  ('?ProxyServerPrompt')TIMES 0
+WHEN  ('?ServerPort')TIMES 0
+WHEN  ('?Sheet1')TIMES 0
+WHEN  ('?String11')TIMES 0
+WHEN  ('?Tab:Logo')TIMES 0
+WHEN  ('?Tab:Options')TIMES 0
+WHEN  ('?UsePreconfig')TIMES 0
+WHEN  ('?UseProxy')TIMES 0
+WHEN  ('?lpszServerName')TIMES 0
+WHEN  ('?unnamed')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 36
+WHEN  ('')TIMES 0
+WHEN  ('?B_Emergente')TIMES 0
+WHEN  ('?B_Operativo')TIMES 0
+WHEN  ('?B_Operativo_2')TIMES 0
+WHEN  ('?B_Practica')TIMES 0
+WHEN  ('?B_RutasConnect')TIMES 0
+WHEN  ('?B_ServerEmergente')TIMES 0
+WHEN  ('?Button:Options')TIMES 0
+WHEN  ('?ClientTempDirectory')TIMES 0
+WHEN  ('?Exit')TIMES 0
+WHEN  ('?FileDialog')TIMES 0
+WHEN  ('?FullProgramID')TIMES 0
+WHEN  ('?Group2')TIMES 0
+WHEN  ('?HostProgramDirectory')TIMES 0
+WHEN  ('?HostProgramName')TIMES 0
+WHEN  ('?Image1')TIMES 0
+WHEN  ('?Image2')TIMES 0
+WHEN  ('?Image3')TIMES 0
+WHEN  ('?LOC:ISAPI_Broker_Ver')TIMES 0
+WHEN  ('?LOC:ISAPI_Mode')TIMES 0
+WHEN  ('?Loc:IP')TIMES 0
+WHEN  ('?Panel2')TIMES 0
+WHEN  ('?Panel2:2')TIMES 0
+WHEN  ('?Prompt2')TIMES 0
+WHEN  ('?ProxyGroup')TIMES 0
+WHEN  ('?ProxyServer')TIMES 0
+WHEN  ('?ProxyServerPrompt')TIMES 0
+WHEN  ('?ServerPort')TIMES 0
+WHEN  ('?Sheet1')TIMES 0
+WHEN  ('?String11')TIMES 0
+WHEN  ('?Tab:Logo')TIMES 0
+WHEN  ('?Tab:Options')TIMES 0
+WHEN  ('?UsePreconfig')TIMES 0
+WHEN  ('?UseProxy')TIMES 0
+WHEN  ('?lpszServerName')TIMES 0
+WHEN  ('?unnamed')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 36
+WHEN  ('')TIMES 0
+WHEN  ('?B_Emergente')TIMES 0
+WHEN  ('?B_Operativo')TIMES 0
+WHEN  ('?B_Operativo_2')TIMES 0
+WHEN  ('?B_Practica')TIMES 0
+WHEN  ('?B_RutasConnect')TIMES 0
+WHEN  ('?B_ServerEmergente')TIMES 0
+WHEN  ('?Button:Options')TIMES 0
+WHEN  ('?ClientTempDirectory')TIMES 0
+WHEN  ('?Exit')TIMES 0
+WHEN  ('?FileDialog')TIMES 0
+WHEN  ('?FullProgramID')TIMES 0
+WHEN  ('?Group2')TIMES 0
+WHEN  ('?HostProgramDirectory')TIMES 0
+WHEN  ('?HostProgramName')TIMES 0
+WHEN  ('?Image1')TIMES 0
+WHEN  ('?Image2')TIMES 0
+WHEN  ('?Image3')TIMES 0
+WHEN  ('?LOC:ISAPI_Broker_Ver')TIMES 0
+WHEN  ('?LOC:ISAPI_Mode')TIMES 0
+WHEN  ('?Loc:IP')TIMES 0
+WHEN  ('?Panel2')TIMES 0
+WHEN  ('?Panel2:2')TIMES 0
+WHEN  ('?Prompt2')TIMES 0
+WHEN  ('?ProxyGroup')TIMES 0
+WHEN  ('?ProxyServer')TIMES 0
+WHEN  ('?ProxyServerPrompt')TIMES 0
+WHEN  ('?ServerPort')TIMES 0
+WHEN  ('?Sheet1')TIMES 0
+WHEN  ('?String11')TIMES 0
+WHEN  ('?Tab:Logo')TIMES 0
+WHEN  ('?Tab:Options')TIMES 0
+WHEN  ('?UsePreconfig')TIMES 0
+WHEN  ('?UseProxy')TIMES 0
+WHEN  ('?lpszServerName')TIMES 0
+WHEN  ('?unnamed')TIMES 0
+
+[EMBED]
+EMBED %WindowManagerMethodCodeSection
+[INSTANCES]
+WHEN 'Init'
+[INSTANCES]
+WHEN '(),BYTE'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 8030
+PROPERTY:END
+DO Handle:Window:Init
+[END]
+[END]
+WHEN 'Reset'
+[INSTANCES]
+WHEN '(BYTE Force=0)'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3500
+PROPERTY:END
+DO Handle:Window:Reset
+[END]
+[END]
+[END]
+EMBED %ControlEventHandling
+[INSTANCES]
+WHEN '?FileDialog'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO Handle:Button:FileDialog
+[END]
+[END]
+WHEN '?Exit'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO Handle:Button:Exit
+[END]
+[END]
+WHEN '?UseProxy'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?HostProgramName'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?ClientTempDirectory'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?HostProgramDirectory'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?lpszServerName'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?ServerPort'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+Self.Reset()
+[END]
+[END]
+WHEN '?Button:Options'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO Handle:Button:Options
+[END]
+[END]
+WHEN '?LOC:ISAPI_Mode'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO Handle:Set:Connect:Mode
+[END]
+[END]
+WHEN '?LOC:ISAPI_Broker_Ver'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 6000
+PROPERTY:END
+DO Handle:Set:Connect:Mode
+[END]
+[END]
+WHEN '?UsePreconfig'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+IF CLRNT_C.UsePreconfig
+  DISABLE(?ProxyServer); DISABLE(?ProxyServerPrompt)
+ELSE
+  ENABLE(?ProxyServer); ENABLE(?ProxyServerPrompt)
+END
+[END]
+[END]
+WHEN '?B_Operativo'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+CLRNT_C.ServerName           = 'arjr.servebbs.net'
+CLRNT_C.HostProgramDirectory = 'EXEC55/Optima_ARJR'
+CLRNT_C.HostProgramName      = 'ARJR-Optima.EXE'
+CLRNT_C.ServerPort           = 8085
+
+DO Handle:Button:Connect
+[END]
+[END]
+WHEN '?B_Operativo_2'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+CLRNT_C.ServerName           = '201.161.98.243'
+CLRNT_C.HostProgramDirectory = 'EXEC55/Optima_ARJR'
+CLRNT_C.HostProgramName      = 'ARJR-Optima.EXE'
+CLRNT_C.ServerPort           = 8085
+
+DO Handle:Button:Connect
+[END]
+[END]
+WHEN '?B_Emergente'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+CLRNT_C.ServerName           = 'arjr.homeip.net'
+CLRNT_C.HostProgramDirectory = 'EXEC55/Optima_ARJR'
+CLRNT_C.HostProgramName      = 'ARJR-Optima.EXE'
+CLRNT_C.ServerPort           = 8085
+
+DO Handle:Button:Connect
+[END]
+[END]
+WHEN '?B_Practica'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+CLRNT_C.ServerName           = 'arjr.servebbs.net'
+CLRNT_C.HostProgramDirectory = 'EXEC55/Optima_PRJR'
+CLRNT_C.HostProgramName      = 'PRJR-Optima.EXE'
+CLRNT_C.ServerPort           = 8085
+
+DO Handle:Button:Connect
+[END]
+[END]
+WHEN '?B_ServerEmergente'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+CLRNT_C.ServerName           = Clip(Loc:IP)
+CLRNT_C.HostProgramDirectory = 'EXEC55/Optima_ARJR'
+CLRNT_C.HostProgramName      = 'ARJR-Optima.EXE'
+CLRNT_C.ServerPort           = 8085
+
+DO Handle:Button:Connect
+[END]
+[END]
+[END]
+EMBED %ProcedureRoutines
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Window:Init              ROUTINE
+!---
+ ?Sheet1{PROP:Wizard } = TRUE
+ ?Sheet1{PROP:NoSheet} = TRUE
+ hide(?Image2)
+ hide(?image3)
+!----------------------------------------------------------------------------------
+ CLEAR(CLRNT_C)
+!----------------------------------------------------------------------------------
+!    Automatically set working directory for downloaded files to the Windows
+!    default setting.
+!    All ICO, GIF, JPG and printer WMF files are placed here.
+!    WMF are always erased after use. Others depend on GraphicDownloadFlag
+!----------------------------------------------------------------------------------
+ IF GetTempPath(FILE:MaxFilepath, CLRNT_C.ClientTempDirectory) = 0
+    CLRNT_C.ClientTempDirectory = 'C:\Connect\'  !LONGPATH() & '\'
+    MESSAGE('Windows did not report a temporary directory.||ClarioNET is assuming "' & CLIP(CLRNT_C.ClientTempDirectory) & '"  .|| Please verify & modify as needed.', |
+            'No TEMP Directory !', ICON:Exclamation)
+ END
+ CLRNT_C.GraphicDownloadFlag          = 12
+ CLRNT_C.ConnectionTimeout            = 60 ! Seconds
+ CLRNT_C.ProgressUpdateFrequency      = 2  ! Seconds
+ CLRNT_C.UseProxy                     = 0
+ DISABLE(?ProxyServer) ;DISABLE(?ProxyGroup)
+ CLRNT_C.UserAgent                    = ''   ! Defaults to 'clarionet'
+ CLRNT_C.ProxyServer                  = ''
+ CLRNT_C.ProxyUserName                = ''
+ CLRNT_C.ProxyPassword                = ''
+ CLRNT_C.CharSet                      = CHARSET:ANSI
+!-------------------------------------------------------------------------------------------------
+! You can set up to FIVE "command line" strings that will be received by the server
+!-------------------------------------------------------------------------------------------------
+ CLRNT_C.Param1 = ''
+ CLRNT_C.Param2 = ''
+ CLRNT_C.Param3 = ''
+ CLRNT_C.Param4 = ''
+ CLRNT_C.Param5 = ''
+!-------------------------------------------------------------------------------------------------
+! This sets to the ClarioNET server
+!-------------------------------------------------------------------------------------------------
+! If Clip(Loc:LugarConectar)='Antyr Principal' Then
+!     CLRNT_C.HostProgramName = 'AutorentJR.EXE'
+!     CLRNT_C.ServerName      = '148.235.82.230'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Antyr Secundario' Then
+!     CLRNT_C.HostProgramName = 'AutorentJR.EXE'
+!     CLRNT_C.ServerName      = '201.120.12.215'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Antyr Sta. Rosa' Then
+!     CLRNT_C.HostProgramName = 'AutorentJR.EXE'
+!     CLRNT_C.ServerName      = 'Server-Jr'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Antyr Emergente' Then
+!     CLRNT_C.HostProgramName = 'AutorentJR.EXE'
+!     CLRNT_C.ServerName      = '201.155.197.214'
+!     CLRNT_C.ServerPort      = 8085
+! Elsif Clip(Loc:LugarConectar)='Práctica Principal' Then
+!     CLRNT_C.HostProgramName = 'Practica.EXE'
+!     CLRNT_C.ServerName      = '148.235.82.230'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Práctica Secundario' Then
+!     CLRNT_C.HostProgramName = 'Practica.EXE'
+!     CLRNT_C.ServerName      = '201.120.12.215'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Práctica Sta. Rosa' Then
+!     CLRNT_C.HostProgramName = 'Practica.EXE'
+!     CLRNT_C.ServerName      = 'Server-Jr'
+!     CLRNT_C.ServerPort      = 8089
+! Elsif Clip(Loc:LugarConectar)='Práctica Emergente' Then
+!     CLRNT_C.HostProgramName = 'Practica.EXE'
+!     CLRNT_C.ServerName      = '201.155.197.214'
+!     CLRNT_C.ServerPort      = 8085
+! End
+ Window{PROP:Timer} = LOC:AutoConnectTimer
+!---
+ DO Handle:Set:Connect:Mode
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Button:Options       ROUTINE
+!---
+ SELECT(?Tab:Options)
+ 0{PROP:Timer} = 0
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Button:Connect       ROUTINE
+ DATA
+LOC:ReturnVal     LONG
+ CODE
+!---
+ SETCURSOR(CURSOR:Wait)
+ 0{PROP:Timer} = 0
+ Hide(?Image1)
+ Unhide(?Image2)
+ Unhide(?Image3)
+ !HIDE(0)                                                   ! REQUIRED  (quitada por JR)
+ !
+ !
+ !CLRNT_C.PingFlag = 1      (ClarioNET:StartServerProgram == Returns 99)
+ !
+ !
+ LOC:ReturnVal = ClarioNET:StartServerProgram()            ! REQUIRED
+ SETCURSOR()
+ IF LOC:ReturnVal
+    CASE LOC:ReturnVal
+     OF CLRNT_ERR_NO_CREATE_TEMP
+        MESSAGE('No puedo crear archivos temporales'                 ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_HTTP_FAILURE       
+        MESSAGE('No puedo abrir una sesión de internet'              ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_SESSION_FAILURE    
+        MESSAGE('No me puedo conectar al programa del server'        ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_DECOMP_INIT_FAILURE
+        MESSAGE('No puedo inicializar la descompresión del programa' ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_NO_HOSTNAME
+        MESSAGE('No ha especificado el nombre del SITIO a dirigirse' ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_NO_HOSTDIR
+        MESSAGE('No hay nombre de SITIO especificado'                ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_NO_SERVERMAME
+        MESSAGE('No se ha especificado el Servidor de Nombres'       ,'Error de sistema',ICON:Exclamation)
+     OF CLRNT_ERR_VERSION_MISMATCH
+        MESSAGE('No coincide la versión'                             ,'Error de sistema',ICON:Exclamation)
+   ELSE
+        MESSAGE('Ha ocurrido un error indeterminado [ ' & LOC:ReturnVal & ' ]','Error de sistema',ICON:Exclamation)
+   END
+   Hide(?Image2)
+   Hide(?Image3)
+   Unhide(?Image1)
+   UNHIDE(0); DISPLAY; EXIT
+ END
+ !----------------------------------------------------------------------------------------------
+ ! At this time CLRNT_C.ServerString1 -> 3 is available for inspection
+ ! Also, CLRNT_C.HostSessionID has been set.
+ !----------------------------------------------------------------------------------------------
+ LOC:ReturnVal = ClarioNET:StartClientSession()                  ! REQUIRED
+ CASE LOC:ReturnVal
+   OF CLRNT_ERR_NONE
+   OF CLRNT_ERR_INACTIVE
+      MESSAGE('Se detecto inactividad y el cliente se desconecto automáticamente'      ,'Error de sistema',ICON:Exclamation)
+   OF CLRNT_ERR_HTTP_TIMEOUT
+      MESSAGE('Error de tiempo de espera en HTTP'                                      ,'Error de sistema',ICON:Exclamation)
+ ELSE
+      MESSAGE('Ha ocurrido un error indeterminado [ ' & LOC:ReturnVal & ' ]'  ,'Error de sistema',ICON:Exclamation)
+ END
+ POST(EVENT:Accepted,?Exit)
+ UNHIDE(0)                                                 ! REQUIRED
+ DISPLAY
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Button:Exit      ROUTINE
+!---
+ POST(EVENT:CloseWindow)
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Button:FileDialog  ROUTINE
+!---
+ FILEDIALOG('Seleccionar carpeta para bajar archivos ', CLRNT_C.ClientTempDirectory,, 100001b)
+ DISPLAY(?ClientTempDirectory)
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Event:Timer  ROUTINE
+!---
+! POST(EVENT:Accepted,?Connect)
+!---
+ EXIT
+!------------------------------------------------------------------------------
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 3600
+PROPERTY:END
+Handle:Window:Reset           ROUTINE
+!---
+ IF CLRNT_C.UseProxy
+    ENABLE (?ProxyGroup)
+ ELSE
+    DISABLE(?ProxyGroup)
+ END
+ DO Handle:MakeFullProgramIDForDisplay
+!---
+ EXIT
+!------------------------------------------------------------------------------
+
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Handle:Set:Connect:Mode             ROUTINE
+!---
+!--- This sets to the ClarioNET server
+!---
+ IF LOC:ISAPI_Mode
+    UNHIDE(?LOC:ISAPI_Broker_Ver)
+    IF LOC:ISAPI_Broker_Ver = '5.5'
+      CLRNT_C.HostProgramDirectory = 'cws/c5launch.dll'   !ISAPI      Version
+    ELSIF LOC:ISAPI_Broker_Ver = '5'
+      CLRNT_C.HostProgramDirectory = 'cws/cwlaunch.dll'   !ISAPI      Version
+    END
+ ELSE
+    HIDE(?LOC:ISAPI_Broker_Ver)
+!    If Clip(Loc:LugarConectar)='Antyr Principal' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/AutorentJR'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Antyr Secundario' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/AutorentJR'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Antyr Sta. Rosa' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/AutorentJR'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Antyr Emergente' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/Arrendadoras/Antyr/AutorentJR'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Práctica Principal' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/Practica'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Práctica Secundario' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/Practica'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Práctica Sta. Rosa' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/Practica'               !EXE Broker Version
+!    Elsif Clip(Loc:LugarConectar)='Práctica Emergente' Then
+!        CLRNT_C.HostProgramDirectory = 'EXEC55/Arrendadoras/Antyr/Practica'               !EXE Broker Version
+!    End
+ END
+!---
+ DISPLAY(?HostProgramDirectory)
+ DISPLAY(?ServerPort          )
+!---
+ DO Handle:MakeFullProgramIDForDisplay
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4000
+PROPERTY:END
+Handle:MakeFullProgramIDForDisplay          ROUTINE
+!---
+ FullProgramID = '/' & CLIP(CLRNT_C.HostProgramName) & '.0'
+!---
+ IF CLIP(CLRNT_C.HostProgramDirectory) <> ''
+    FullProgramID = '/' & CLIP(CLRNT_C.HostProgramDirectory) & CLIP(FullProgramID)
+ END
+!---
+ FullProgramID = 'http://' & CLIP(CLRNT_C.ServerName) & ':' & CLIP(CLRNT_C.ServerPort) & CLIP(FullProgramID)
+!---
+ DISPLAY(?FullProgramID)
+!---
+ EXIT
+!------------------------------------------------------------------------------
+[END]
+EMBED %WindowEventHandling
+[INSTANCES]
+WHEN 'Timer'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+DO Handle:Event:Timer
+[END]
+WHEN 'OpenWindow'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 5000
+PROPERTY:END
+!Hide(?String14)
+!Hide(?Loc:IP)
+
+Glo:ArchivosRecibidos=GetIni('Rutas','ArchivosRecibidos','C:\Datos connect','c:\connect.ini')
+Glo:LectorPDF=GetIni('Lectores','LectorPDF','C:\Program Files\Adobe\Reader 10.0\Reader\AcroRd32.exe','c:\connect.ini')
+Glo:LectorCFD=GetIni('Lectores','LectorCFD','C:\Program Files\Internet Explorer\Iexplore.exe','c:\connect.ini')
+Glo:LectorTXT=GetIni('Lectores','LectorTXT','C:\windows\notepad.exe','c:\connect.ini')
+Glo:LectorCSV=GetIni('Lectores','LectorCSV','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+Glo:LectorXML=GetIni('Lectores','LectorXML','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+Glo:LectorDBF=GetIni('Lectores','LectorDBF','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+[END]
+[END]
+[END]
+[ADDITION]
+NAME ClarioNET ClarioNETProcedureClient
+[INSTANCE]
+INSTANCE 2
+OWNER 1
+[WINDOW]
+Window WINDOW('Modulo de conexión JR - Optima'),AT(,,317,296),FONT('MS Sans Serif',6,,FONT:regular),CENTER, |
+         IMM,ICON('C:\Sistemas\Iconos\Modem-3.ico'),SYSTEM,GRAY,DOUBLE
+       SHEET,AT(0,0,312,290),USE(?Sheet1),BELOW,#ORIG(?Sheet1)
+         TAB('Tab 1'),USE(?Tab:Logo),#ORIG(?Tab1)
+           STRING('Versión 16'),AT(5,2),USE(?String13),FONT(,,,FONT:bold),#ORIG(?String13)
+           IMAGE('Y:\Doctos MV\Connect\Optima\LogoOptimaRentaCar.jpg'),AT(33,15,257,164),USE(?Image1), |
+               #ORIG(?Image1)
+           IMAGE('computadoras.gif'),AT(99,50,94,31),USE(?Image2),#ORIG(?Image2)
+           IMAGE('texto_comunicacion.JPG'),AT(41,132,223,18),USE(?Image3),#ORIG(?Image3)
+           BUTTON('Server Operativo-1'),AT(33,181,50,44),USE(?B_Operativo),MSG('a.s.n'),TIP('a.s.n'), |
+               ICON('C:\C55WEB\Connect\data-server.ico'),#ORIG(?Button6)
+           BUTTON('Server Práctica'),AT(197,181,50,44),USE(?B_Practica),MSG('a.s.n'),TIP('a.s.n'),ICON('C:\C55WEB\Connect\ServerRed2.ico'), |
+               #ORIG(?B_Ppal:3)
+           BUTTON('Server Emergente'),AT(213,234,73,27),USE(?B_ServerEmergente),LEFT,ICON('C:\C55WEB\Connect\Data-server4.ico'), |
+               #ORIG(?Button9)
+           BUTTON('Server Operativo-3'),AT(139,181,50,44),USE(?B_Emergente),MSG('a.h.n'),TIP('a.h.n'), |
+               ICON('C:\C55WEB\Connect\server.ico'),#ORIG(?B_Ppal:2)
+           BUTTON('Server Operativo-2'),AT(86,181,50,44),USE(?B_Operativo_2),MSG('201.xxx.xxx.xx3'),TIP('201.xxx.xxx.xx3'), |
+               ICON('C:\C55WEB\Connect\practica-server.ico'),#ORIG(?B_Ppal)
+           ENTRY(@s35),AT(89,242,120,12),USE(Loc:IP),FONT(,10,,FONT:bold),MSG('Direccion IP a la cual conectarse en el formato www.xxx.yyy.zzz.'), |
+               TIP('Direccion IP a la cual conectarse en el formato www.xxx.yyy.zzz.'),#ORIG(Loc:IP)
+           STRING('(DR) 2015 JR Computación'),AT(225,2),USE(?String11),TRN,FONT('Arial',7,COLOR:Red,FONT:bold,CHARSET:ANSI), |
+               #ORIG(?String11)
+           BUTTON('Options'),AT(4,249,25,34),USE(?Button:Options),FLAT,HIDE,FONT(,8,,,CHARSET:ANSI),ICON(ICON:Exclamation), |
+               #ORIG(?Button4)
+           BUTTON('Rutas Connect'),AT(33,229,50,44),USE(?B_RutasConnect),ICON(ICON:Application),#ORIG(?Button5)
+           PANEL,AT(3,249,27,34),USE(?Panel2:2),HIDE,BEVEL(-1,1),#ORIG(?Panel2)
+         END
+         TAB('Tab 2'),USE(?Tab:Options),#ORIG(?Tab2)
+           GROUP,AT(7,2,286,197),USE(?Group2),BOXED,#ORIG(?Group2)
+             STRING('Program & Server Information...'),AT(11,18,141,10),TRN,LEFT,FONT(,8,COLOR:Navy,FONT:bold,CHARSET:ANSI)
+             STRING('Program Name :'),AT(14,30,89,10),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI)
+             COMBO(@s50),AT(106,30,175,10),USE(CLRNT_C.HostProgramName,,?HostProgramName),LEFT(2),FONT(,8,COLOR:Navy,FONT:bold), |
+                 DROP(3)
+             STRING('Client Temp. Drive/Folder :'),AT(13,44,89,10),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI)
+             ENTRY(@s128),AT(106,44,160,10),USE(CLRNT_C.ClientTempDirectory,,?ClientTempDirectory),LEFT(2), |
+                 FONT(,8,COLOR:Navy,FONT:bold)
+             BUTTON,AT(267,43,14,10),USE(?FileDialog),ICON(ICON:Ellipsis)
+             STRING('Server Directory :'),AT(14,58,89,10),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI)
+             ENTRY(@s50),AT(106,58,175,10),USE(CLRNT_C.HostProgramDirectory,,?HostProgramDirectory),LEFT(2), |
+                 FONT(,8,COLOR:Navy,FONT:bold)
+             STRING('Server Name :'),AT(14,72,89,10),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI)
+             COMBO(@s50),AT(106,72,175,10),USE(CLRNT_C.ServerName,,?lpszServerName),LEFT(2),FONT(,8,COLOR:Navy,FONT:bold), |
+                 DROP(4)
+             STRING('Server Port :'),AT(14,86,89,10),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI)
+             SPIN(@n4),AT(106,86,47,10),USE(CLRNT_C.ServerPort,,?ServerPort),RIGHT(2),FONT(,8,COLOR:Navy,FONT:bold), |
+                 STEP(1)
+             COMBO(@n3.1),AT(257,86,24,10),USE(LOC:ISAPI_Broker_Ver),HIDE,CENTER,DROP(2),FROM('5.0|5.5'), |
+                 #ORIG(LOC:ISAPI_Broker_Ver)
+             CHECK('ISAPI Mode?'),AT(155,86,49,10),USE(LOC:ISAPI_Mode),TRN,LEFT,TIP('Toggle between ISAPI and EXEBroker Calling'), |
+                 #ORIG(LOC:ISAPI_Mode)
+             STRING('Broker Ver. :'),AT(215,86,40,10),USE(?unnamed),TRN,RIGHT,FONT(,8,,,CHARSET:ANSI), |
+                 #ORIG(?String12)
+             STRING('Launching :'),AT(14,100,89,10),TRN,RIGHT,FONT(,8,,FONT:bold,CHARSET:ANSI)
+             TEXT,AT(106,101,176,22),USE(FullProgramID),LEFT,FONT(,8,COLOR:Navy,FONT:bold,CHARSET:ANSI), |
+                 COLOR(COLOR:Silver)
+             CHECK('   Use Proxy Server'),AT(23,115,80,10),USE(CLRNT_C.UseProxy,,?UseProxy),TRN,FONT(,8,,,CHARSET:ANSI)
+             GROUP,AT(21,123,266,68),USE(?ProxyGroup),DISABLE,BOXED
+               CHECK('Use default browser or other proxy server configuration settings'),AT(40,132,222,10), |
+                   USE(CLRNT_C.UsePreconfig,,?UsePreconfig),TRN
+               STRING('Proxy Server Name :'),AT(40,144,63,10),USE(?ProxyServerPrompt),TRN,RIGHT
+               ENTRY(@s50),AT(106,144,175,10),USE(CLRNT_C.ProxyServer,,?ProxyServer),LEFT(2),FONT(,8,COLOR:Navy,FONT:bold)
+               STRING('Proxy User Name :'),AT(40,159,63,10),USE(?ProxyUserNamePrompt),TRN,RIGHT
+               ENTRY(@s50),AT(106,159,175,10),USE(CLRNT_C.ProxyUserName,,?ProxyUserName2),LEFT(2),FONT(,8,COLOR:Navy,FONT:bold)
+               STRING('Proxy Password :'),AT(40,174,63,10),USE(?ProxyUserPassPrompt),TRN,RIGHT
+               ENTRY(@s50),AT(106,174,175,10),USE(CLRNT_C.ProxyPassword,,?ProxyPassword2),LEFT(2),FONT(,8,COLOR:Navy,FONT:bold)
+             END
+           END
+           PROMPT('You must manually click the "Connect" button to connect.'),AT(54,209,118,17),USE(?Prompt2), |
+               TRN,CENTER,FONT(,,,FONT:bold),#ORIG(?Prompt2)
+         END
+       END
+       BUTTON('&Salir'),AT(254,181,50,44),USE(?Exit),FLAT,FONT(,8,,,CHARSET:ANSI),ICON('C:\Sistemas\Iconos\SALIR1.ICO')
+       PANEL,AT(254,182,50,44),USE(?Panel2),BEVEL(-1,1),#ORIG(?Panel2)
+     END
+
+[END]
+[MODULE]
+[COMMON]
+FROM ABC GENERATED
+[PROMPTS]
+[PROCEDURE]
+NAME RutasConnect
+[COMMON]
+FROM ABC Window
+MODIFIED '2024/11/25' '13:27:07'
+[DATA]
+[SCREENCONTROLS]
+! PROMPT('Loc : orden:'),USE(?Loc:orden:Prompt)
+! ENTRY(@s200),USE(Loc:orden)
+[REPORTCONTROLS]
+! STRING(@s200),USE(Loc:orden)
+Loc:orden                STRING(200)
+!!> IDENT(4294967220),PROMPT('Loc : orden:'),HEADER('Loc : orden'),PICTURE(@s200)
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default', |
+  'WindowToolbar')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('WindowManager')
+WHEN  ('WindowToolbar') ('ToolbarClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('')
+WHEN  ('WindowToolbar') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%Parameters DEFAULT  ('')
+%ReturnValue FIELD  ()
+%WindowOperationMode DEFAULT  ('Use WINDOW setting')
+%INISaveWindow LONG  (1)
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('NO')
+WHEN  ('WindowToolbar') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('ThisWindow')
+WHEN  ('WindowToolbar') ('Toolbar')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (1)
+WHEN  ('WindowToolbar') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 2
+WHEN  ('Default') ('AStringValue')
+WHEN  ('WindowToolbar') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 2
+WHEN  ('Default') (0)
+WHEN  ('WindowToolbar') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('WindowToolbar')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ButtonAction DEPEND %Control DEFAULT TIMES 10
+WHEN  ('?Button3') ('No Special Action')
+WHEN  ('?Close') ('No Special Action')
+WHEN  ('?Glo:LectorCSV:Prompt') ('No Special Action')
+WHEN  ('?LookupFile') ('No Special Action')
+WHEN  ('?LookupFileCFD') ('No Special Action')
+WHEN  ('?LookupFileCSV') ('No Special Action')
+WHEN  ('?LookupFileDBF') ('No Special Action')
+WHEN  ('?LookupFilePDF') ('No Special Action')
+WHEN  ('?LookupFileTXT') ('No Special Action')
+WHEN  ('?LookupFileXML') ('No Special Action')
+
+%ButtonRunName DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?Button3') ('')
+WHEN  ('?Close') ('')
+WHEN  ('?LookupFile') ('')
+WHEN  ('?LookupFileCFD') ('')
+WHEN  ('?LookupFileCSV') ('')
+WHEN  ('?LookupFileDBF') ('')
+WHEN  ('?LookupFilePDF') ('')
+WHEN  ('?LookupFileTXT') ('')
+WHEN  ('?LookupFileXML') ('')
+
+%ButtonRunParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?Button3') ('')
+WHEN  ('?Close') ('')
+WHEN  ('?LookupFile') ('')
+WHEN  ('?LookupFileCFD') ('')
+WHEN  ('?LookupFileCSV') ('')
+WHEN  ('?LookupFileDBF') ('')
+WHEN  ('?LookupFilePDF') ('')
+WHEN  ('?LookupFileTXT') ('')
+WHEN  ('?LookupFileXML') ('')
+
+%ButtonProcedure DEPEND %Control PROCEDURE TIMES 9
+WHEN  ('?Button3') ()
+WHEN  ('?Close') ()
+WHEN  ('?LookupFile') ()
+WHEN  ('?LookupFileCFD') ()
+WHEN  ('?LookupFileCSV') ()
+WHEN  ('?LookupFileDBF') ()
+WHEN  ('?LookupFilePDF') ()
+WHEN  ('?LookupFileTXT') ()
+WHEN  ('?LookupFileXML') ()
+
+%ButtonThread DEPEND %Control LONG TIMES 9
+WHEN  ('?Button3') (0)
+WHEN  ('?Close') (0)
+WHEN  ('?LookupFile') (0)
+WHEN  ('?LookupFileCFD') (0)
+WHEN  ('?LookupFileCSV') (0)
+WHEN  ('?LookupFileDBF') (0)
+WHEN  ('?LookupFilePDF') (0)
+WHEN  ('?LookupFileTXT') (0)
+WHEN  ('?LookupFileXML') (0)
+
+%ButtonThreadStack DEPEND %Control DEFAULT TIMES 10
+WHEN  ('?Button3') ('25000')
+WHEN  ('?Close') ('25000')
+WHEN  ('?Glo:LectorCSV:Prompt') ('25000')
+WHEN  ('?LookupFile') ('25000')
+WHEN  ('?LookupFileCFD') ('25000')
+WHEN  ('?LookupFileCSV') ('25000')
+WHEN  ('?LookupFileDBF') ('25000')
+WHEN  ('?LookupFilePDF') ('25000')
+WHEN  ('?LookupFileTXT') ('25000')
+WHEN  ('?LookupFileXML') ('25000')
+
+%ButtonParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?Button3') ('')
+WHEN  ('?Close') ('')
+WHEN  ('?LookupFile') ('')
+WHEN  ('?LookupFileCFD') ('')
+WHEN  ('?LookupFileCSV') ('')
+WHEN  ('?LookupFileDBF') ('')
+WHEN  ('?LookupFilePDF') ('')
+WHEN  ('?LookupFileTXT') ('')
+WHEN  ('?LookupFileXML') ('')
+
+%ButtonReturnValueAssignment DEPEND %Control FIELD TIMES 9
+WHEN  ('?Button3') ()
+WHEN  ('?Close') ()
+WHEN  ('?LookupFile') ()
+WHEN  ('?LookupFileCFD') ()
+WHEN  ('?LookupFileCSV') ()
+WHEN  ('?LookupFileDBF') ()
+WHEN  ('?LookupFilePDF') ()
+WHEN  ('?LookupFileTXT') ()
+WHEN  ('?LookupFileXML') ()
+
+%ButtonReturnValueReferenceAssign DEPEND %Control LONG TIMES 9
+WHEN  ('?Button3') (0)
+WHEN  ('?Close') (0)
+WHEN  ('?LookupFile') (0)
+WHEN  ('?LookupFileCFD') (0)
+WHEN  ('?LookupFileCSV') (0)
+WHEN  ('?LookupFileDBF') (0)
+WHEN  ('?LookupFilePDF') (0)
+WHEN  ('?LookupFileTXT') (0)
+WHEN  ('?LookupFileXML') (0)
+
+%ButtonRequest DEPEND %Control DEFAULT TIMES 10
+WHEN  ('?Button3') ('None')
+WHEN  ('?Close') ('None')
+WHEN  ('?Glo:LectorCSV:Prompt') ('None')
+WHEN  ('?LookupFile') ('None')
+WHEN  ('?LookupFileCFD') ('None')
+WHEN  ('?LookupFileCSV') ('None')
+WHEN  ('?LookupFileDBF') ('None')
+WHEN  ('?LookupFilePDF') ('None')
+WHEN  ('?LookupFileTXT') ('None')
+WHEN  ('?LookupFileXML') ('None')
+
+%ButtonThreadParameters DEPEND %Control DEFAULT TIMES 9
+WHEN  ('?Button3') ('')
+WHEN  ('?Close') ('')
+WHEN  ('?LookupFile') ('')
+WHEN  ('?LookupFileCFD') ('')
+WHEN  ('?LookupFileCSV') ('')
+WHEN  ('?LookupFileDBF') ('')
+WHEN  ('?LookupFilePDF') ('')
+WHEN  ('?LookupFileTXT') ('')
+WHEN  ('?LookupFileXML') ('')
+
+%ButtonThreadReturnValueAssignment DEPEND %Control FIELD TIMES 9
+WHEN  ('?Button3') ()
+WHEN  ('?Close') ()
+WHEN  ('?LookupFile') ()
+WHEN  ('?LookupFileCFD') ()
+WHEN  ('?LookupFileCSV') ()
+WHEN  ('?LookupFileDBF') ()
+WHEN  ('?LookupFilePDF') ()
+WHEN  ('?LookupFileTXT') ()
+WHEN  ('?LookupFileXML') ()
+
+%PreLookupKey DEPEND %Control KEY TIMES 0
+
+%PreLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PreLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupKey DEPEND %Control KEY TIMES 0
+
+%PostLookupField DEPEND %Control COMPONENT TIMES 0
+
+%PostLookupProcedure DEPEND %Control PROCEDURE TIMES 0
+
+%PostLookupDuringValidate DEPEND %Control LONG TIMES 18
+WHEN  ('?Button3') (1)
+WHEN  ('?Close') (1)
+WHEN  ('?Glo:ArchivosRecibidos') (1)
+WHEN  ('?Glo:LectorBAT') (1)
+WHEN  ('?Glo:LectorCFD') (1)
+WHEN  ('?Glo:LectorCSV') (1)
+WHEN  ('?Glo:LectorCSV:Prompt') (1)
+WHEN  ('?Glo:LectorDBF') (1)
+WHEN  ('?Glo:LectorPDF') (1)
+WHEN  ('?Glo:LectorTXT') (1)
+WHEN  ('?Glo:LectorXML') (1)
+WHEN  ('?LookupFile') (1)
+WHEN  ('?LookupFileCFD') (1)
+WHEN  ('?LookupFileCSV') (1)
+WHEN  ('?LookupFileDBF') (1)
+WHEN  ('?LookupFilePDF') (1)
+WHEN  ('?LookupFileTXT') (1)
+WHEN  ('?LookupFileXML') (1)
+
+%ForceWindowRefresh DEPEND %Control LONG TIMES 0
+
+%LookupAssign DEPEND %Control MULTI LONG TIMES 0
+
+%MoreField DEPEND %LookupAssign DEFAULT TIMES 0
+
+%MoreTarget DEPEND %LookupAssign FIELD TIMES 0
+
+%CheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedAssignVariable DEPEND %CheckedAssigns FIELD TIMES 0
+
+%CheckedAssignValue DEPEND %CheckedAssigns DEFAULT TIMES 0
+
+%CheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl DEPEND %CheckedHides DEFAULT TIMES 0
+
+%CheckedControlAction DEPEND %CheckedHides DEFAULT TIMES 10
+WHEN  ('?Button3')TIMES 0
+WHEN  ('?Close')TIMES 0
+WHEN  ('?Glo:LectorCSV:Prompt')TIMES 0
+WHEN  ('?LookupFile')TIMES 0
+WHEN  ('?LookupFileCFD')TIMES 0
+WHEN  ('?LookupFileCSV')TIMES 0
+WHEN  ('?LookupFileDBF')TIMES 0
+WHEN  ('?LookupFilePDF')TIMES 0
+WHEN  ('?LookupFileTXT')TIMES 0
+WHEN  ('?LookupFileXML')TIMES 0
+
+%CheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%CheckedControl1 DEPEND %CheckedEnables DEFAULT TIMES 0
+
+%CheckedControl1Action DEPEND %CheckedEnables DEFAULT TIMES 10
+WHEN  ('?Button3')TIMES 0
+WHEN  ('?Close')TIMES 0
+WHEN  ('?Glo:LectorCSV:Prompt')TIMES 0
+WHEN  ('?LookupFile')TIMES 0
+WHEN  ('?LookupFileCFD')TIMES 0
+WHEN  ('?LookupFileCSV')TIMES 0
+WHEN  ('?LookupFileDBF')TIMES 0
+WHEN  ('?LookupFilePDF')TIMES 0
+WHEN  ('?LookupFileTXT')TIMES 0
+WHEN  ('?LookupFileXML')TIMES 0
+
+%UncheckedAssigns DEPEND %Control MULTI LONG TIMES 0
+
+%UncheckedAssignVariable DEPEND %UncheckedAssigns FIELD TIMES 0
+
+%UncheckedAssignValue DEPEND %UncheckedAssigns DEFAULT TIMES 0
+
+%UnCheckedHides DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl DEPEND %UnCheckedHides DEFAULT TIMES 0
+
+%UnCheckedControlAction DEPEND %UnCheckedHides DEFAULT TIMES 10
+WHEN  ('?Button3')TIMES 0
+WHEN  ('?Close')TIMES 0
+WHEN  ('?Glo:LectorCSV:Prompt')TIMES 0
+WHEN  ('?LookupFile')TIMES 0
+WHEN  ('?LookupFileCFD')TIMES 0
+WHEN  ('?LookupFileCSV')TIMES 0
+WHEN  ('?LookupFileDBF')TIMES 0
+WHEN  ('?LookupFilePDF')TIMES 0
+WHEN  ('?LookupFileTXT')TIMES 0
+WHEN  ('?LookupFileXML')TIMES 0
+
+%UnCheckedEnables DEPEND %Control MULTI LONG TIMES 0
+
+%UnCheckedControl1 DEPEND %UnCheckedEnables DEFAULT TIMES 0
+
+%UnCheckedControl1Action DEPEND %UnCheckedEnables DEFAULT TIMES 10
+WHEN  ('?Button3')TIMES 0
+WHEN  ('?Close')TIMES 0
+WHEN  ('?Glo:LectorCSV:Prompt')TIMES 0
+WHEN  ('?LookupFile')TIMES 0
+WHEN  ('?LookupFileCFD')TIMES 0
+WHEN  ('?LookupFileCSV')TIMES 0
+WHEN  ('?LookupFileDBF')TIMES 0
+WHEN  ('?LookupFilePDF')TIMES 0
+WHEN  ('?LookupFileTXT')TIMES 0
+WHEN  ('?LookupFileXML')TIMES 0
+
+[EMBED]
+EMBED %ControlEventHandling
+[INSTANCES]
+WHEN '?Button3'
+[INSTANCES]
+WHEN 'Accepted'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+PutIni('Rutas','ArchivosRecibidos',Clip(Glo:ArchivosRecibidos),'c:\connect.ini')
+PutIni('Lectores','LectorPDF',Clip(Glo:LectorPDF),'c:\connect.ini')
+PutIni('Lectores','LectorCFD',Clip(Glo:LectorCFD),'c:\connect.ini')
+PutIni('Lectores','LectorTXT',Clip(Glo:LectorTXT),'c:\connect.ini')
+PutIni('Lectores','LectorCSV',Clip(Glo:LectorCSV),'c:\connect.ini')
+PutIni('Lectores','LectorXML',Clip(Glo:LectorXML),'c:\connect.ini')
+PutIni('Lectores','LectorDBF',Clip(Glo:LectorDBF),'c:\connect.ini')
+PutIni('Lectores','LectorBAT',Clip(Glo:LectorBAT),'c:\connect.ini')
+POST(EVENT:Accepted,?Close)
+
+
+[END]
+[END]
+[END]
+EMBED %WindowEventHandling
+[INSTANCES]
+WHEN 'OpenWindow'
+[DEFINITION]
+[SOURCE]
+PROPERTY:BEGIN
+PRIORITY 4499
+PROPERTY:END
+Glo:ArchivosRecibidos=GetIni('Rutas','ArchivosRecibidos','C:\Datos connect','c:\connect.ini')
+Glo:LectorPDF=GetIni('Lectores','LectorPDF','C:\Program Files\Adobe\Reader 10.0\Reader\AcroRd32.exe','c:\connect.ini')
+Glo:LectorCFD=GetIni('Lectores','LectorCFD','C:\Program Files\Internet Explorer\Iexplore.exe','c:\connect.ini')
+Glo:LectorTXT=GetIni('Lectores','LectorTXT','C:\windows\notepad.exe','c:\connect.ini')
+Glo:LectorCSV=GetIni('Lectores','LectorCSV','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+Glo:LectorXML=GetIni('Lectores','LectorXML','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+Glo:LectorDBF=GetIni('Lectores','LectorDBF','C:\Program Files\Microsoft Office\Office14\Excel.exe','c:\connect.ini')
+
+[END]
+[END]
+[END]
+[ADDITION]
+NAME ClarioNET ClarioNETProcedureClient
+[INSTANCE]
+INSTANCE 1
+OWNER 1
+[ADDITION]
+NAME ABC CloseButton
+[INSTANCE]
+INSTANCE 2
+[ADDITION]
+NAME ABC DOSFileLookup
+[INSTANCE]
+INSTANCE 3
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Programa .EXE para leer archivos PDF')
+%DOSFileField FIELD  (Glo:LectorPDF)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.exe')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup3')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 4
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Programa .EXE para leer archivos de los CFD')
+%DOSFileField FIELD  (Glo:LectorCFD)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.exe')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup4')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 5
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Programa .EXE para leer archivos de reportes TXT')
+%DOSFileField FIELD  (Glo:LectorTXT)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.exe')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup5')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 6
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Programa .EXE para leer archivos de reportes XML')
+%DOSFileField FIELD  (Glo:LectorXML)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.exe')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup6')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 7
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Programa .EXE para leer archivos de reportes DBF')
+%DOSFileField FIELD  (Glo:LectorDBF)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.exe')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup7')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 8
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Archivos de reportes CSV')
+%DOSFileField FIELD  (Glo:LectorCSV)
+%DOSInitialDirectory DEFAULT  ('c:\')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.*')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup8')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[INSTANCE]
+INSTANCE 9
+[PROMPTS]
+%ClassItem UNIQUE DEFAULT  ('Default')
+%DefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('SelectFileClass')
+
+%ActualDefaultBaseClassType DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('')
+
+%ClassLines DEPEND %ClassItem MULTI DEFAULT TIMES 0
+
+%DOSFileDialogHeader DEFAULT  ('Archivo Ejecutor Pagos')
+%DOSFileField FIELD  (Glo:LectorBAT)
+%DOSInitialDirectory DEFAULT  ('c:')
+%DOSInitialFilename DEFAULT  ('')
+%ReturnToOriginalDir LONG  (0)
+%AllowLongFilenames LONG  (1)
+%AllowMultiSelect LONG  (0)
+%ActionsToTake DEFAULT  ('')
+%DOSVariableMask LONG  (0)
+%DOSMaskVariable DEFAULT  ('')
+%DOSMaskDesc DEFAULT  ('All Files')
+%DOSMask DEFAULT  ('*.EXE')
+%DOSMoreMasks MULTI LONG  ()
+%DOSMoreMaskDesc DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%DOSMoreMask DEPEND %DOSMoreMasks DEFAULT TIMES 0
+
+%RedisplayWindow LONG  (1)
+%UpdateFields MULTI LONG  ()
+%UpdateFeq DEPEND %UpdateFields DEFAULT TIMES 0
+
+%GlobalObject DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('NO')
+
+%ThisObjectName DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('FileLookup9')
+
+%UseDefaultABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%UseABCBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (1)
+
+%ABCBaseClass DEPEND %ClassItem DEFAULT TIMES 1
+WHEN  ('Default') ('AStringValue')
+
+%ExtBaseClass DEPEND %ClassItem DEFAULT TIMES 0
+
+%BaseClassIncludeFile DEPEND %ClassItem DEFAULT TIMES 0
+
+%DeriveFromBaseClass DEPEND %ClassItem LONG TIMES 1
+WHEN  ('Default') (0)
+
+%NewMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewMethodName DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewMethodPrototype DEPEND %NewMethods DEFAULT TIMES 0
+
+%NewClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%NewClassProperty DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataType DEPEND %NewClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%NewClassOtherType DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataIsRef DEPEND %NewClassPropertyItems LONG TIMES 0
+
+%NewClassDataSize DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim1 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim2 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim3 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%NewClassDataDim4 DEPEND %NewClassPropertyItems DEFAULT TIMES 0
+
+%ClassMethods DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassMethodName DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassMethodPrototype DEPEND %ClassMethods DEFAULT TIMES 0
+
+%ClassPropertyItems DEPEND %ClassItem MULTI LONG TIMES 0
+
+%ClassProperty DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataType DEPEND %ClassPropertyItems DEFAULT TIMES 1
+WHEN  ('Default')TIMES 0
+
+%ClassOtherType DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataIsRef DEPEND %ClassPropertyItems LONG TIMES 0
+
+%ClassDataSize DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim1 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim2 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim3 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+%ClassDataDim4 DEPEND %ClassPropertyItems DEFAULT TIMES 0
+
+[WINDOW]
+Window WINDOW('Rutas Connect'),AT(,,389,267),FONT('MS Sans Serif',8,,FONT:regular),GRAY,DOUBLE
+       STRING('Los datos modificarán el archivo c:\connect.ini'),AT(109,2),USE(?String1),FONT(,,COLOR:Maroon,FONT:bold), |
+           #ORIG(?String1)
+       PANEL,AT(4,14,383,21),USE(?Panel3),#ORIG(?Panel3)
+       PROMPT('Carpeta Archivos Recibidos:'),AT(11,20),USE(?Glo:ArchivosRecibidos:Prompt),#ORIG(?Glo:ArchivosRecibidos:Prompt), |
+           #LINK(?Glo:ArchivosRecibidos)
+       ENTRY(@s200),AT(104,20,256,10),USE(Glo:ArchivosRecibidos),#ORIG(Glo:ArchivosRecibidos),#LINK(?Glo:ArchivosRecibidos:Prompt)
+       STRING('Ruta de localización de los ejecutables que leeran los siguiente tipos de archiv' &|
+           'o'),AT(46,44),USE(?String2),FONT(,,COLOR:Maroon,FONT:bold),#ORIG(?String2)
+       PANEL,AT(4,37,383,202),USE(?Panel2),#ORIG(?Panel2)
+       BUTTON,AT(351,58,26,23),USE(?LookupFilePDF),ICON('C:\C55WEB\Connect\PDF.ico'),#SEQ(3),#ORIG(?LookupFile)
+       PROMPT('Lector facturas  PDF:'),AT(14,65),USE(?Glo:LectorPDF:Prompt),#ORIG(?Glo:LectorPDF:Prompt), |
+           #LINK(?Glo:LectorPDF)
+       ENTRY(@s200),AT(86,65,256,10),USE(Glo:LectorPDF),#ORIG(Glo:LectorPDF),#LINK(?Glo:LectorPDF:Prompt)
+       PROMPT(' Lector Facturas XML:'),AT(11,92),USE(?Glo:LectorCFD:Prompt),#ORIG(?Glo:LectorCFD:Prompt), |
+           #LINK(?Glo:LectorCFD)
+       ENTRY(@s200),AT(86,92,256,10),USE(Glo:LectorCFD),#ORIG(Glo:LectorCFD),#LINK(?Glo:LectorCFD:Prompt)
+       BUTTON,AT(351,85,26,23),USE(?LookupFileCFD),ICON('C:\C55WEB\Connect\internet_explorer.ico'),#SEQ(4), |
+           #ORIG(?LookupFile)
+       BUTTON,AT(351,112,26,23),USE(?LookupFileTXT),ICON('C:\C55WEB\Connect\text_document.ico'),#SEQ(5), |
+           #ORIG(?LookupFile)
+       PROMPT('Lector Reportes TXT:'),AT(12,118),USE(?Glo:LectorTXT:Prompt),#ORIG(?Glo:LectorTXT:Prompt), |
+           #LINK(?Glo:LectorTXT)
+       ENTRY(@s200),AT(86,118,256,10),USE(Glo:LectorTXT),#ORIG(Glo:LectorTXT),#LINK(?Glo:LectorTXT:Prompt)
+       BUTTON,AT(351,138,26,23),USE(?LookupFileCSV),ICON('C:\C55WEB\Connect\excel.ico'),#SEQ(8),#ORIG(?LookupFile)
+       BUTTON,AT(351,164,26,23),USE(?LookupFileXML),ICON('C:\C55WEB\Connect\excel.ico'),#SEQ(6),#ORIG(?LookupFile)
+       PROMPT('Lector Reportes XML:'),AT(12,171),USE(?Glo:LectorXML:Prompt),#ORIG(?Glo:LectorXML:Prompt), |
+           #LINK(?Glo:LectorXML)
+       ENTRY(@s200),AT(86,171,256,10),USE(Glo:LectorXML),#ORIG(Glo:LectorXML),#LINK(?Glo:LectorXML:Prompt)
+       PROMPT('Lector Reportes CSV:'),AT(12,144),USE(?Glo:LectorCSV:Prompt),#ORIG(?Glo:LectorXML:Prompt)
+       ENTRY(@s200),AT(86,144,256,10),USE(Glo:LectorCSV),#ORIG(Glo:LectorXML)
+       PROMPT('Lector Archivos DBF:'),AT(14,196),USE(?Glo:LectorDBF:Prompt),#ORIG(?Glo:LectorDBF:Prompt), |
+           #LINK(?Glo:LectorDBF)
+       ENTRY(@s200),AT(86,196,256,10),USE(Glo:LectorDBF),#ORIG(Glo:LectorDBF),#LINK(?Glo:LectorDBF:Prompt)
+       BUTTON,AT(351,216,26,23),USE(?LookupFile),ICON('C:\C55WEB\Autorentas\Connect\server ppal.ico'), |
+           #SEQ(9),#ORIG(?LookupFile)
+       PROMPT('Ejecutor Pagos:'),AT(31,221),USE(?Glo:LectorBAT:Prompt),#ORIG(?Glo:LectorBAT:Prompt),#LINK(?Glo:LectorBAT)
+       ENTRY(@s200),AT(86,221,256,10),USE(Glo:LectorBAT),#ORIG(Glo:LectorBAT),#LINK(?Glo:LectorBAT:Prompt)
+       BUTTON('...'),AT(351,191,26,23),USE(?LookupFileDBF),ICON('C:\C55WEB\Connect\excel.ico'),#SEQ(7), |
+           #ORIG(?LookupFile)
+       BUTTON('Actualizar y Salir'),AT(245,240,70,23),USE(?Button3),LEFT,ICON(ICON:Tick),#ORIG(?Button3)
+       BUTTON('Salir sin actualizar'),AT(317,240,70,23),USE(?Close),SKIP,LEFT,ICON(ICON:Hand),#SEQ(2), |
+           #ORIG(?Close)
+     END
+
+[END]
